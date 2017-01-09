@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@(String.IsNullOrEmpty(ViewBag.Title) ? "Residential Solar System | Solar PV System | Simplify Solar" : ViewBag.Title)</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300,900,500%7CRoboto+Condensed:300,400,700,900" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,600' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="~/Styles/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/minimal.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/tables.swipetoggle.css" />
+    <link href="https://www.google.com/uds/api/visualization/1.0/f5ce4cf7ba7513f66e3f45efe3b22ee9/ui+en.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/custom.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/fancybox.css" />
+
+
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="index">
+                    <img src="/images/SSlogo.png" alt="Simplify Solar" />
+                </a>
+                
+
+                @*@Html.ActionLink("Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+                <div class="navbar-collapse collapse">
+                    
+                    
+                    <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("ProjectOverview", "ProjectOverview", "Dashboard")</li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    </ul>
+                    
+                    @Html.Partial("_LoginPartial")
+                </div>
+            
+            </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Simplify Solar</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing,geometry,places&key=AIzaSyCqDNFqePtj9UpXG3kdUuryjhJQsZI-8LA"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="https://www.google.com/uds/?file=visualization&amp;v=1&amp;packages=corechart" type="text/javascript"></script>
+    <script src="https://www.google.com/uds/api/visualization/1.0/f5ce4cf7ba7513f66e3f45efe3b22ee9/format+en,default+en,ui+en,corechart+en.I.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/1/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/1/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/1/controls.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/1/places_impl.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/icheck.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-filestyle.min.js"></script>
+    <script data-cfasync="false" src="https://widget.userengage.io/widget.js"></script>
+    <script type="text/javascript" src="~/Scripts/fancybox.js"></script>
+    <script type="text/javascript" src="~/Scripts/app.js"></script>
+    <script type="text/javascript" src="~/Scripts/maps-startpage.js"></script>
+    <script type="text/javascript" src="~/Scripts/start.js"></script>
+    <!--<script type="text/javascript" src="~/Scripts/page.js"></script>-->
+    <script type="text/javascript" src="~/Scripts/sun-number.js"></script>
+    <script type="text/javascript" src="~/Scripts/maps.js"></script>
+</body>
+</html>

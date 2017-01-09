@@ -1,0 +1,598 @@
+﻿
+@{
+    ViewBag.Title = "Project Overview";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<style>
+    .ss-button:hover {
+        text-decoration: none;
+    }
+</style>
+
+
+<div class="bhoechie-tab">
+
+    <div class="bhoechie-tab-content active">
+        <p style="font-size:medium;margin-bottom:20px;">Welcome to the Overview Portal of your Home Solar Dashboard. The timeline above indicates your project status and next steps, while the left navigation pane allows you to access various portals to progress through your project. If you have any questions along the way, you can always contact a Simplify Solar representative by clicking the chat button at the bottom right hand corner or calling us directly at 1-877-9-SIMPLIFY.</p>
+
+        <a href="/dashboard/projectfinancing" class="ss-button" style="padding: 15px; text-align: center; display: block;  border-radius: 40px; height: 50px; margin-top: 0; margin-bottom: 30px; width: 300px; background-color: #00cd00; border: none; color: white; font-size: 16px;">CHOOSE FINANCING</a>
+
+        <div class="panel panel-default">
+            <div class="panel-heading noNote">
+                <div class="title-right"></div>
+                <div class="panel-title">Project Details</div>
+            </div>
+            <div class="panel-body overflowH">
+                <div class="form-horizontal group-border hover-stripped formView">
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Customer Name</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        Jason Sears
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Site Address</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        3018 Prescott Street, Texas, United States, 77025
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Utility Rate</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        11.0¢/kWh
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Avg. Monthly Bill</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        $210
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:170px;">Desired Bill Savings</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        50%
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Net System Cost</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        $2,091
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:170px;">Site Survey Option</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        No
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Financing Option</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        No
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="control-label" style="width:169px;">Package Description</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        8KW Standard
+
+                                        Package comes equipped with:
+                                        34 GCL 240 Watts Polycrystalline Panels
+                                        Renovo Inverters
+                                        Renusol VS Racking System
+                                        Solar Log 300 Monitoring System
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:180px;">Panel Warranty Detail</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        25-year linear production warranty, including full product warranty for 10 years.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:200px">Inverter Warranty Detail</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        Most central inverters come with an industry-standard 10-year warranty, extendable up to a maximum of 20 years
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display:none;">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" ">Energy Provider</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        CenterPoint Energy
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">TDU</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        0.65
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="bottom-shadow"></div>
+        </div>
+        <div class="panel panel-default " style="display:none;">
+            <div class="panel-heading noNote">
+                <div class="title-right"></div>
+                <div class="panel-title">SunNumber Details</div>
+            </div>
+            <div class="panel-body overflowH">
+                <div class="form-horizontal group-border hover-stripped formView ">
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Sun Number</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        Not Found: Location outside of Sun Number processed area.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="control-label" style="font-weight:bold">Plane datails</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">area</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">aspect</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">perimeter</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">slope</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="control-label" style="font-weight:bold">Shade datails</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:200px!important">0_to_25_percent_unshaded</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:200px!important">25_to_50_percent_unshaded</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:200px!important">50_to_70_percent_unshaded</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:200px!important">70_to_80_percent_unshaded</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:200px!important">80_to_90_percent_unshaded</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:200px!important">90_to_95_percent_unshaded</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:200px!important">95_to_100_percent_unshaded</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-shadow"></div>
+        </div>
+        <div class="panel panel-default " style="display:none;">
+            <div class="panel-heading noNote">
+                <div class="title-right"></div>
+                <div class="panel-title">Package Details</div>
+            </div>
+            <div class="panel-body overflowH">
+                <div class="form-horizontal group-border hover-stripped formView ">
+                    <div class="form-group" style="display:none;">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Package Type</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left:51px;">
+                                        Standard
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Package Title</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display:none;">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Package Watts</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        8 kW / 8000 W
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Package Detail</label>
+                                <div class="controls padri10">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Panel Details</label>
+                                <div class="controls padri10">
+                                    <div class="uploadedImges" style="margin-top:6px;">
+                                        <div class="imgCell">
+                                            <a href="https://gme.simplifysolar.com/Admin/Content/Package/silverpackagepanel10062014030557227.jpg" id="ctl00_Main_lnkPanelThumb" class="downloadlink highslide fancybox">
+
+                                            </a>
+                                        </div>
+                                        <div class="imgLblcell">
+                                            <span id="ctl00_Main_lblpanelTitle" class="viewlable" style="margin-left:38px;color:#838383">Tier I  (0 Panel)</span>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" style="display:none;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Inverter Details</label>
+                                <div class="controls padri10">
+                                    <div class="uploadedImges" style="margin-top:6px;">
+                                        <div class=" imgCell">
+                                            <a href="https://gme.simplifysolar.com/Admin/Content/Package/silverpackageinverter10062014030557304.jpg" id="ctl00_Main_lnkInverterThumb" class="downloadlink highslide fancybox">
+
+                                            </a>
+                                        </div>
+                                        <div class="imgLblcell">
+                                            <span id="ctl00_Main_lblInverterDetail" class="viewlable" style="margin-left:38px;color:#838383">Renovo (1 Inverter)</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-sm-12" style="display:none;">
+                                <label class="control-label">No. of Inverter</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        1
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12" style="display:none;">
+                                <label class="control-label">Size of Inverter</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        6250KW
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width:170px;">Monitoring System</label>
+                                <div class="controls padri10">
+                                    <div class="uploadedImges">
+                                        <div class="imgCell">
+
+                                        </div>
+                                        <div class="imgLblcell">
+                                            <span id="ctl00_Main_lblMonitorSystem" class="viewlable"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Racking Details</label>
+                                <div class="controls padri10">
+                                    <div class="uploadedImges" style="margin-top:6px;">
+                                        <div class="imgCell">
+                                            <a href="https://gme.simplifysolar.com/Admin/Content/Package/silverpackageracking10062014030557377.jpg" id="ctl00_Main_lnkRoofMountThumb" class="downloadlink highslide fancybox">
+
+                                            </a>
+                                        </div>
+                                        <div class="imgLblcell" style="margin-left:51px;">
+                                            <span id="ctl00_Main_lblRoofMount" class="viewlable" style="margin-left:38px;color:#838383">Renusol</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+
+
+                            <div class="col-md-6 col-sm-12" style="display:none;">
+                                <label class="control-label">See in Image</label>
+                                <div class="controls padri10">
+                                    <div class="uploadedImges">
+                                        <div class="imgCell">
+                                            <a href="https://gme.simplifysolar.com/Admin/Content/Package/silverpackagepanel10062014034548693.jpg" id="ctl00_Main_lnkSeeinImageThumb" class="highslide fancybox">
+                                                <img id="ctl00_Main_ImgSeeinImageThumb" class="imagesize50by50" src="https://gme.simplifysolar.com/Admin/Content/Package/Thumb/silverpackagepanel10062014034548693.jpg" />
+                                            </a>
+                                        </div>
+                                        <div class="imgLblcell">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Balance of System</label>
+                                <div class="controls padri10">
+                                    <div class="uploadedImges">
+                                        <div class="imgCell">
+
+
+                                        </div>
+                                        <div class="imgLblcell">
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bottom-shadow"></div>
+        </div>
+        <div id="ctl00_Main_divInstaller" class="panel panel-default">
+            <div class="panel-heading noNote">
+                <div class="title-right"></div>
+                <div class="panel-title">Installer Details</div>
+            </div>
+            <div class="panel-body overflowH">
+                <div class="form-horizontal group-border hover-stripped formView">
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Installer Name</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        Installer-1
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Avg. Rating</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        <div id="ctl00_Main_ratRatings" class="RadRating RadRating_Default" class="divRatings" style="float: left; margin-left: -5px;">
+                                            <ul class="rrtItem">
+                                                <li><a title="0.0" href="#"><span>1</span></a></li>
+                                                <li><a title="0.0" href="#"><span>2</span></a></li>
+                                                <li><a title="0.0" href="#"><span>3</span></a></li>
+                                                <li><a title="0.0" href="#"><span>4</span></a></li>
+                                                <li><a title="0.0" href="#"><span>5</span></a></li>
+                                            </ul><input id="ctl00_Main_ratRatings_ClientState" name="ctl00_Main_ratRatings_ClientState" type="hidden" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Review</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue">
+                                        0
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-shadow"></div>
+        </div>
+    </div>
+    <input type="hidden" name="ctl00$Main$hdnUserId" id="ctl00_Main_hdnUserId" value="0" />
+    <input type="hidden" name="ctl00$Main$hdnCustomerID" id="ctl00_Main_hdnCustomerID" />
+</div>
+
+

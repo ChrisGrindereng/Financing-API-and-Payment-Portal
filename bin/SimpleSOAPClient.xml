@@ -1,0 +1,869 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimpleSOAPClient</name>
+    </assembly>
+    <members>
+        <member name="T:SimpleSOAPClient.Constant">
+            <summary>
+            Class with a wide range of constant values
+            </summary>
+        </member>
+        <member name="T:SimpleSOAPClient.Constant.Namespace">
+            <summary>
+            Namespace constants
+            </summary>
+        </member>
+        <member name="F:SimpleSOAPClient.Constant.Namespace.OrgXmlSoapSchemasSoapEnvelope">
+            <summary>
+            The SOAP Envelope namespace
+            </summary>
+        </member>
+        <member name="F:SimpleSOAPClient.Constant.Namespace.ComMicrosoftSchemasWs200505AddressingNone">
+            <summary>
+            The Microsoft addressing namespace
+            </summary>
+        </member>
+        <member name="F:SimpleSOAPClient.Constant.Namespace.OrgOpenOasisDocsWss200401Oasis200401WssWssecuritySecext10">
+            <summary>
+            The Oasis Security namespace
+            </summary>
+        </member>
+        <member name="F:SimpleSOAPClient.Constant.Namespace.OrgOpenOasisDocsWss200401Oasis200401WssWssecurityUtility10">
+            <summary>
+            The Oasis Security Utilities namespace
+            </summary>
+        </member>
+        <member name="F:SimpleSOAPClient.Constant.Namespace.OrgOpenOasisDocsWss200401Oasis200401WssUsernameTokenProfile10PasswordText">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.ISoapClient.RequestEnvelopeHandler">
+            <summary>
+            Handler that can manipulate the <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/>
+            before serialization.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.ISoapClient.RequestRawHandler">
+            <summary>
+            Handler that can manipulate the generated XML string.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.ISoapClient.ResponseEnvelopeHandler">
+            <summary>
+            Handler that can manipulate the <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> returned
+            by the SOAP Endpoint.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.ISoapClient.ResponseRawHandler">
+            <summary>
+            Handler that can manipulate the returned string before deserialization.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.ISoapClient.RemoveXmlDeclaration">
+            <summary>
+            Indicates if the XML declaration should be removed from the
+            serialized SOAP Envelopes
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.ISoapClient.SendAsync(System.String,System.String,SimpleSOAPClient.Models.SoapEnvelope,System.Threading.CancellationToken)">
+            <summary>
+            Sends the given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> into the specified url.
+            </summary>
+            <param name="url">The url that will receive the request</param>
+            <param name="action">The SOAP action beeing performed</param>
+            <param name="requestEnvelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be sent</param>
+            <param name="ct">The cancellation token</param>
+            <returns>A task to be awaited for the result</returns>
+        </member>
+        <member name="M:SimpleSOAPClient.ISoapClient.SendAsync(System.String,SimpleSOAPClient.Models.SoapEnvelope,System.Threading.CancellationToken)">
+            <summary>
+            Sends the given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> into the specified url.
+            </summary>
+            <param name="url">The url that will receive the request</param>
+            <param name="requestEnvelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be sent</param>
+            <param name="ct">The cancellation token</param>
+            <returns>A task to be awaited for the result</returns>
+        </member>
+        <member name="M:SimpleSOAPClient.ISoapClient.Send(System.String,System.String,SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Sends the given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> into the specified url.
+            </summary>
+            <param name="url">The url that will receive the request</param>
+            <param name="action">The SOAP Action beeing performed</param>
+            <param name="requestEnvelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be sent</param>
+            <returns>The resulting <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/></returns>
+        </member>
+        <member name="M:SimpleSOAPClient.ISoapClient.Send(System.String,SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Sends the given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> into the specified url.
+            </summary>
+            <param name="url">The url that will receive the request</param>
+            <param name="requestEnvelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be sent</param>
+            <returns>The resulting <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/></returns>
+        </member>
+        <member name="T:SimpleSOAPClient.SoapClient">
+            <summary>
+            The SOAP client that can be used to invoke SOAP Endpoints
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.SoapClient.HttpClient">
+            <summary>
+            The used HTTP client
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.#ctor">
+            <summary>
+            Creates a new SOAP Client
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.#ctor(System.Net.Http.HttpMessageHandler)">
+            <summary>
+            Creates a new SOAP Client
+            </summary>
+            <param name="handler">The handler to be used by the <see cref="P:SimpleSOAPClient.SoapClient.HttpClient"/></param>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.#ctor(System.Net.Http.HttpClient,System.Boolean)">
+            <summary>
+            Creates a new SOAP Client
+            </summary>
+            <param name="httpClient">The <see cref="P:SimpleSOAPClient.SoapClient.HttpClient"/> to be used</param>
+            <param name="disposeHttpClient">Should the client also be disposed</param>
+        </member>
+        <member name="P:SimpleSOAPClient.SoapClient.RequestEnvelopeHandler">
+            <summary>
+            Handler that can manipulate the <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/>
+            before serialization.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.SoapClient.RequestRawHandler">
+            <summary>
+            Handler that can manipulate the generated XML string.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.SoapClient.ResponseEnvelopeHandler">
+            <summary>
+            Handler that can manipulate the <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> returned
+            by the SOAP Endpoint.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.SoapClient.ResponseRawHandler">
+            <summary>
+            Handler that can manipulate the returned string before deserialization.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.SoapClient.RemoveXmlDeclaration">
+            <summary>
+            Indicates if the XML declaration should be removed from the
+            serialized SOAP Envelopes
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.SendAsync(System.String,System.String,SimpleSOAPClient.Models.SoapEnvelope,System.Threading.CancellationToken)">
+            <summary>
+            Sends the given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> into the specified url.
+            </summary>
+            <param name="url">The url that will receive the request</param>
+            <param name="action">The SOAP action beeing performed</param>
+            <param name="requestEnvelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be sent</param>
+            <param name="ct">The cancellation token</param>
+            <returns>A task to be awaited for the result</returns>
+            <exception cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException"></exception>
+            <exception cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.SendAsync(System.String,SimpleSOAPClient.Models.SoapEnvelope,System.Threading.CancellationToken)">
+            <summary>
+            Sends the given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> into the specified url.
+            </summary>
+            <param name="url">The url that will receive the request</param>
+            <param name="requestEnvelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be sent</param>
+            <param name="ct">The cancellation token</param>
+            <returns>A task to be awaited for the result</returns>
+            <exception cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException"></exception>
+            <exception cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.Send(System.String,System.String,SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Sends the given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> into the specified url.
+            </summary>
+            <param name="url">The url that will receive the request</param>
+            <param name="action">The SOAP action beeing performed</param>
+            <param name="requestEnvelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be sent</param>
+            <returns>The resulting <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/></returns>
+            <exception cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException"></exception>
+            <exception cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.Send(System.String,SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Sends the given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> into the specified url.
+            </summary>
+            <param name="url">The url that will receive the request</param>
+            <param name="requestEnvelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be sent</param>
+            <returns>The resulting <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/></returns>
+            <exception cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException"></exception>
+            <exception cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.Prepare">
+            <summary>
+            Prepares a new <see cref="T:SimpleSOAPClient.SoapClient"/> instance to be configured.
+            </summary>
+            <returns>The SOAP client to be configured</returns>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.Prepare(System.Net.Http.HttpMessageHandler)">
+            <summary>
+            Prepares a new <see cref="T:SimpleSOAPClient.SoapClient"/> instance to be configured.
+            </summary>
+            <param name="handler">The handler to be used by the <see cref="P:SimpleSOAPClient.SoapClient.HttpClient"/></param>
+            <returns>The SOAP client to be configured</returns>
+        </member>
+        <member name="M:SimpleSOAPClient.SoapClient.Prepare(System.Net.Http.HttpClient,System.Boolean)">
+            <summary>
+            Prepares a new <see cref="T:SimpleSOAPClient.SoapClient"/> instance to be configured.
+            </summary>
+            <param name="httpClient">The <see cref="P:SimpleSOAPClient.SoapClient.HttpClient"/> to be used</param>
+            <param name="disposeHttpClient">Should the client also be disposed</param>
+            <returns>The SOAP client to be configured</returns>
+        </member>
+        <member name="T:SimpleSOAPClient.Exceptions.FaultException">
+            <summary>
+            Exception representing a fault returned by the server
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Exceptions.FaultException.Code">
+            <summary>
+            The fault code
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Exceptions.FaultException.String">
+            <summary>
+            The fault string
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Exceptions.FaultException.Actor">
+            <summary>
+            The fault actor
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Exceptions.FaultException.Detail">
+            <summary>
+            The fault detail
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.FaultException.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.FaultException"/> with 
+            a default error message
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.FaultException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.FaultException"/> with 
+            a specified error message
+            </summary>
+            <param name="message">The error message</param>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.FaultException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.FaultException"/> with 
+            a specified error message and a reference to the inner exception
+            </summary>
+            <param name="message">The error message</param>
+            <param name="innerException">The inner exception</param>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.FaultException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.FaultException"/> with 
+            a specified error message and a reference to the inner exception
+            </summary>
+            <param name="innerException">The inner exception</param>
+        </member>
+        <member name="T:SimpleSOAPClient.Exceptions.SoapClientException">
+            <summary>
+            Base class for specialized exceptions thrown by the Simple SOAP Client library
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapClientException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapClientException"/>
+            </summary>
+            <param name="message">The message to be used</param>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapClientException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapClientException"/>
+            </summary>
+            <param name="message">The message to be used</param>
+            <param name="innerException">The inner exception</param>
+        </member>
+        <member name="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException">
+            <summary>
+            Exception thrown when an exception is thrown when deserializing
+            a given XML string to a <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/>.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException.XmlValue">
+            <summary>
+            The XML string that was beeing deserialized
+            </summary>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException"/>
+            </summary>
+            <param name="xmlValue">The XML string that was beeing deserialized</param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException"/>
+            </summary>
+            <param name="xmlValue">The XML string that was beeing deserialized</param>
+            <param name="message">The message to be used</param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException"/>
+            </summary>
+            <param name="xmlValue">The XML string that was beeing deserialized</param>
+            <param name="message">The message to be used</param>
+            <param name="innerException">The inner exception</param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeDeserializationException"/>
+            </summary>
+            <param name="xmlValue">The XML string that was beeing deserialized</param>
+            <param name="innerException">The inner exception</param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException">
+            <summary>
+            Exception thrown when an exception is thrown when serializing
+            a given <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to a XML string.
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException.Envelope">
+            <summary>
+            The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> that failed to be serialized
+            </summary>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException.#ctor(SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException"/>
+            </summary>
+            <param name="envelope">The envelope that failed to serialize</param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException.#ctor(SimpleSOAPClient.Models.SoapEnvelope,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException"/>
+            </summary>
+            <param name="envelope">The envelope that failed to serialize</param>
+            <param name="message">The message to be used</param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException.#ctor(SimpleSOAPClient.Models.SoapEnvelope,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException"/>
+            </summary>
+            <param name="envelope">The envelope that failed to serialize</param>
+            <param name="message">The message to be used</param>
+            <param name="innerException">The inner exception</param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException.#ctor(SimpleSOAPClient.Models.SoapEnvelope,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Exceptions.SoapEnvelopeSerializationException"/>
+            </summary>
+            <param name="envelope">The envelope that failed to serialize</param>
+            <param name="innerException">The inner exception</param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="T:SimpleSOAPClient.Helpers.ClientHelpers">
+            <summary>
+            Helper methods for working with <see cref="T:SimpleSOAPClient.ISoapClient"/> instances.
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingRequestEnvelopeHandler``1(``0,System.Collections.Generic.IEnumerable{System.Func{System.String,SimpleSOAPClient.Models.SoapEnvelope,SimpleSOAPClient.Models.SoapEnvelope}},System.Boolean)">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.RequestEnvelopeHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <param name="append">Indicates if the handlers must be appended to existing one. By default they will be prepended.</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingRequestEnvelopeHandler``1(``0,System.Func{System.String,SimpleSOAPClient.Models.SoapEnvelope,SimpleSOAPClient.Models.SoapEnvelope}[])">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.RequestEnvelopeHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingRequestEnvelopeHandler``1(``0,System.Boolean,System.Func{System.String,SimpleSOAPClient.Models.SoapEnvelope,SimpleSOAPClient.Models.SoapEnvelope}[])">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.RequestEnvelopeHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="append">Indicates if the handlers must be appended to existing one. By default they will be prepended.</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingRequestRawHandler``1(``0,System.Collections.Generic.IEnumerable{System.Func{System.String,System.String,System.String}},System.Boolean)">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.RequestRawHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <param name="append">Indicates if the handlers must be appended to existing one. By default they will be prepended.</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingRequestRawHandler``1(``0,System.Func{System.String,System.String,System.String}[])">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.RequestRawHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingRequestRawHandler``1(``0,System.Boolean,System.Func{System.String,System.String,System.String}[])">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.RequestRawHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="append">Indicates if the handlers must be appended to existing one. By default they will be prepended.</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingResponseRawHandler``1(``0,System.Collections.Generic.IEnumerable{System.Func{System.String,System.String,System.String}},System.Boolean)">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.ResponseRawHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <param name="append">Indicates if the handlers must be appended to existing one. By default they will be prepended.</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingResponseRawHandler``1(``0,System.Func{System.String,System.String,System.String}[])">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.ResponseRawHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingResponseRawHandler``1(``0,System.Boolean,System.Func{System.String,System.String,System.String}[])">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.ResponseRawHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="append">Indicates if the handlers must be appended to existing one. By default they will be prepended.</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingResponseEnvelopeHandler``1(``0,System.Collections.Generic.IEnumerable{System.Func{System.String,SimpleSOAPClient.Models.SoapEnvelope,SimpleSOAPClient.Models.SoapEnvelope}},System.Boolean)">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.ResponseEnvelopeHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <param name="append">Indicates if the handlers must be appended to existing one. By default they will be prepended.</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingResponseEnvelopeHandler``1(``0,System.Func{System.String,SimpleSOAPClient.Models.SoapEnvelope,SimpleSOAPClient.Models.SoapEnvelope}[])">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.ResponseEnvelopeHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.UsingResponseEnvelopeHandler``1(``0,System.Boolean,System.Func{System.String,SimpleSOAPClient.Models.SoapEnvelope,SimpleSOAPClient.Models.SoapEnvelope}[])">
+            <summary>
+            Attaches the provided collection handler collection to the 
+            <see cref="P:SimpleSOAPClient.ISoapClient.ResponseEnvelopeHandler"/> creating a pipeline.
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="append">Indicates if the handlers must be appended to existing one. By default they will be prepended.</param>
+            <param name="handlers">The handler collection to attach as a pipeline</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.ClientHelpers.OnSerializeRemoveXmlDeclaration``1(``0,System.Boolean)">
+            <summary>
+            Should the XML declaration be removed from the resulting deserialization?
+            </summary>
+            <typeparam name="TSoapClient">The SOAP client type</typeparam>
+            <param name="client">The client to be used</param>
+            <param name="remove">Should the XML declaration be removed? Defaults to true</param>
+            <returns>The SOAP client after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:SimpleSOAPClient.Helpers.EnvelopeHelpers">
+            <summary>
+            Helper methods for working with <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> instances.
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.Body(SimpleSOAPClient.Models.SoapEnvelope,System.Xml.Linq.XElement)">
+            <summary>
+            Sets the given <see cref="T:System.Xml.Linq.XElement"/> as the envelope body.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be used.</param>
+            <param name="body">The <see cref="T:System.Xml.Linq.XElement"/> to set as the body.</param>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> after changes.</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.Body``1(SimpleSOAPClient.Models.SoapEnvelope,``0)">
+            <summary>
+            Sets the given entity as the envelope body.
+            </summary>
+            <typeparam name="T">The object type</typeparam>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be used.</param>
+            <param name="body">The entity to set as the body.</param>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> after changes.</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.Body``1(SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Extracts the <see cref="P:SimpleSOAPClient.Models.SoapEnvelope.Body"/> as an object of the given type.
+            </summary>
+            <typeparam name="T">The type do be deserialized.</typeparam>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/></param>
+            <returns>The deserialized object</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:SimpleSOAPClient.Exceptions.FaultException">Thrown if the body contains a fault</exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.WithHeaders(SimpleSOAPClient.Models.SoapEnvelope,System.Xml.Linq.XElement[])">
+            <summary>
+            Appends the received <see cref="T:System.Xml.Linq.XElement"/> collection to the existing
+            ones in the received <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/>.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to append the headers</param>
+            <param name="headers">The <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> collection to append</param>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.WithHeaders(SimpleSOAPClient.Models.SoapEnvelope,System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement})">
+            <summary>
+            Appends the received <see cref="T:System.Xml.Linq.XElement"/> collection to the existing
+            ones in the received <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/>.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to append the headers</param>
+            <param name="headers">The <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> collection to append</param>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.WithHeaders(SimpleSOAPClient.Models.SoapEnvelope,SimpleSOAPClient.Models.SoapHeader[])">
+            <summary>
+            Appends the received <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> collection to the existing
+            ones in the received <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/>.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to append the headers</param>
+            <param name="headers">The <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> collection to append</param>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.WithHeaders(SimpleSOAPClient.Models.SoapEnvelope,System.Collections.Generic.IEnumerable{SimpleSOAPClient.Models.SoapHeader})">
+            <summary>
+            Appends the received <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> collection to the existing
+            ones in the received <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/>.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to append the headers</param>
+            <param name="headers">The <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> collection to append</param>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> after changes</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.Header(SimpleSOAPClient.Models.SoapEnvelope,System.Xml.Linq.XName)">
+            <summary>
+            Gets a given <see cref="T:System.Xml.Linq.XElement"/> by its <see cref="T:System.Xml.Linq.XName"/>.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> with the headers.</param>
+            <param name="name">The <see cref="T:System.Xml.Linq.XName"/> to search.</param>
+            <returns>The <see cref="T:System.Xml.Linq.XElement"/> or null if not match is found</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.Header``1(SimpleSOAPClient.Models.SoapEnvelope,System.Xml.Linq.XName)">
+            <summary>
+            Gets a given <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> by its <see cref="T:System.Xml.Linq.XName"/>.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> with the headers.</param>
+            <param name="name">The <see cref="T:System.Xml.Linq.XName"/> to search.</param>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> or null if not match is found</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.IsFaulted(SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Does the <see cref="P:SimpleSOAPClient.Models.SoapEnvelope.Body"/> contains a fault?
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to validate</param>
+            <returns>True if a fault exists</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.ThrowIfFaulted(SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Checks if the <see cref="P:SimpleSOAPClient.Models.SoapEnvelope.Body"/> contains a fault 
+            and throws an <see cref="T:SimpleSOAPClient.Exceptions.FaultException"/> if true.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to validate.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:SimpleSOAPClient.Exceptions.FaultException">Thrown if the body contains a fault</exception>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.Fault(SimpleSOAPClient.Models.SoapEnvelope)">
+            <summary>
+            Extracts the <see cref="P:SimpleSOAPClient.Models.SoapEnvelope.Body"/> as a <see cref="T:SimpleSOAPClient.Models.SoapFault"/>.
+            It will fail to deserialize if the body is not a fault. Consider to
+            use <see cref="M:SimpleSOAPClient.Helpers.EnvelopeHelpers.IsFaulted(SimpleSOAPClient.Models.SoapEnvelope)"/> first.
+            </summary>
+            <param name="envelope">The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> to be used</param>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapFault"/></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:SimpleSOAPClient.Helpers.XmlHelpers">
+            <summary>
+            Helper class with extensions for XML manipulation
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.XmlHelpers.ToXmlString``1(``0,System.Boolean)">
+            <summary>
+            Serializes the given object to a XML string
+            </summary>
+            <typeparam name="T">The object type</typeparam>
+            <param name="item">The item to serialize</param>
+            <param name="removeXmlDeclaration">Remove the XML declaration</param>
+            <returns>The XML string</returns>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.XmlHelpers.ToXmlString``1(``0)">
+            <summary>
+            Serializes the given object to a XML string
+            </summary>
+            <typeparam name="T">The object type</typeparam>
+            <param name="item">The item to serialize</param>
+            <returns>The XML string</returns>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.XmlHelpers.ToXElement``1(``0,System.Boolean)">
+            <summary>
+            Serializes a given object to XML and returns the <see cref="T:System.Xml.Linq.XElement"/> representation.
+            </summary>
+            <typeparam name="T">The object type</typeparam>
+            <param name="item">The item to convert</param>
+            <param name="removeXmlDeclaration">Remove the XML declaration</param>
+            <returns>The object as a <see cref="T:System.Xml.Linq.XElement"/></returns>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.XmlHelpers.ToXElement``1(``0)">
+            <summary>
+            Serializes a given object to XML and returns the <see cref="T:System.Xml.Linq.XElement"/> representation.
+            </summary>
+            <typeparam name="T">The object type</typeparam>
+            <param name="item">The item to convert</param>
+            <returns>The object as a <see cref="T:System.Xml.Linq.XElement"/></returns>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.XmlHelpers.ToObject``1(System.String)">
+            <summary>
+            Deserializes a given XML string to a new object of the expected type.
+            If null or white spaces the default(T) will be returned;
+            </summary>
+            <typeparam name="T">The type to be deserializable</typeparam>
+            <param name="xml">The XML string to deserialize</param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:SimpleSOAPClient.Helpers.XmlHelpers.ToObject``1(System.Xml.Linq.XElement)">
+            <summary>
+            Deserializes a given <see cref="T:System.Xml.Linq.XElement"/> to a new object of the expected type.
+            If null the default(T) will be returned.
+            </summary>
+            <typeparam name="T">The type to be deserializable</typeparam>
+            <param name="xml">The <see cref="T:System.Xml.Linq.XElement"/> to deserialize</param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.SoapEnvelope">
+            <summary>
+            Represents a SOAP Envelope
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapEnvelope.Header">
+            <summary>
+            The SOAP Envelope Header section
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapEnvelope.Body">
+            <summary>
+            The SOAP Envelope Body section
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Models.SoapEnvelope.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/>
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Models.SoapEnvelope.Prepare">
+            <summary>
+            Prepares a new SOAP Envelope to be manipulated
+            </summary>
+            <returns>The <see cref="T:SimpleSOAPClient.Models.SoapEnvelope"/> instance</returns>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.SoapEnvelopeBody">
+            <summary>
+            Represents the SOAP Envelope Body section
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapEnvelopeBody.Value">
+            <summary>
+            The body content
+            </summary>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.SoapEnvelopeHeader">
+            <summary>
+            Represents the SOAP Envelope Header section
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapEnvelopeHeader.Headers">
+            <summary>
+            The collection of headers
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Models.SoapEnvelopeHeader.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SimpleSOAPClient.Models.SoapEnvelopeHeader"/>
+            </summary>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.SoapFault">
+            <summary>
+            Represents a SOAP Fault
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapFault.Code">
+            <summary>
+            The fault code
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapFault.String">
+            <summary>
+            The fault string
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapFault.Actor">
+            <summary>
+            The fault actor
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapFault.Detail">
+            <summary>
+            The fault detail
+            </summary>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.SoapHeader">
+            <summary>
+            Base classe for SOAP Headers
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.SoapHeader.MustUnderstand">
+            <summary>
+            Does the header must be understand?
+            </summary>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.Headers.KnownHeader">
+            <summary>
+            Class with known <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> builder methods.
+            </summary>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.Headers.KnownHeader.Microsoft">
+            <summary>
+            Class with Microsoft specific <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> builder methods.
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Models.Headers.KnownHeader.Microsoft.Action(System.String,System.Boolean)">
+            <summary>
+            Creates a new Microsoft Action SOAP Header.
+            </summary>
+            <param name="action">The action for the header</param>
+            <param name="mustUnderstand">Does the server must understand the header?</param>
+            <returns>The new <see cref="T:SimpleSOAPClient.Models.Headers.Microsoft.ActionSoapHeader"/></returns>
+        </member>
+        <member name="M:SimpleSOAPClient.Models.Headers.KnownHeader.Microsoft.To(System.String,System.Boolean)">
+            <summary>
+            Creates a new Microsoft To SOAP Header.
+            </summary>
+            <param name="to">The action for the header</param>
+            <param name="mustUnderstand">Does the server must understand the header?</param>
+            <returns>The new <see cref="T:SimpleSOAPClient.Models.Headers.Microsoft.ToSoapHeader"/></returns>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.Headers.KnownHeader.Oasis">
+            <summary>
+            Class with Oasis specific <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> builder methods.
+            </summary>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.Headers.KnownHeader.Oasis.Security">
+            <summary>
+            Class with Oasis Security specific <see cref="T:SimpleSOAPClient.Models.SoapHeader"/> builder methods.
+            </summary>
+        </member>
+        <member name="M:SimpleSOAPClient.Models.Headers.KnownHeader.Oasis.Security.UsernameTokenAndPasswordText(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates a new Oasis Security Username Token with password text SOAP header.
+            </summary>
+            <param name="username">The username</param>
+            <param name="password">The password</param>
+            <param name="mustUnderstand">Does the server must understand the header?</param>
+            <returns>The new <see cref="T:SimpleSOAPClient.Models.Headers.Oasis.Security.UsernameTokenAndPasswordTextSoapHeader"/></returns>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.Headers.Microsoft.ActionSoapHeader">
+            <summary>
+            The Microsoft Action SOAP Header
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.Headers.Microsoft.ActionSoapHeader.Action">
+            <summary>
+            The header action content
+            </summary>
+        </member>
+        <member name="T:SimpleSOAPClient.Models.Headers.Microsoft.ToSoapHeader">
+            <summary>
+            The Microsoft To SOAP Header
+            </summary>
+        </member>
+        <member name="P:SimpleSOAPClient.Models.Headers.Microsoft.ToSoapHeader.To">
+            <summary>
+            The header to content
+            </summary>
+        </member>
+    </members>
+</doc>

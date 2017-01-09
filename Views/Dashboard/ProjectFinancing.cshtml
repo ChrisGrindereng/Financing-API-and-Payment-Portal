@@ -1,0 +1,349 @@
+﻿@{
+    ViewBag.Title = "ProjectFinancing";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="bhoechie-tab">
+    <div class="bhoechie-tab-content active" id="btnDiv">
+        <a id="ss-link-financing" title="Choose Financing Plan" class="anchorbutton active ss-link-btn">Choose Financing Plan</a>
+        <a href="/Customer/PaymentPortal.aspx?CustomerToProjectID=5XI3Ym7rHQc%3d&InstallerID=kWyg%2fZfYRiI%3d" id="ss-link-payment" title="Payment Portal" class="anchorbutton ss-link-btn">Payment Portal</a>
+    </div>
+    <div class="bhoechie-tab-content active" align="center" id="mainDiv">
+        <div style="text-align: initial;">
+            Welcome to the My Financing Section of the Simplify Solar platform where you can choose affordable financing options for your new Solar PV System.<br />
+            To get started, how would you like
+            to pay?
+        </div>
+        <br />
+        <br />
+        <div class="col-md-12" style="margin-bottom: 20px;">
+            <div class="col-md-4" style="margin-left: -22px;">
+                <table style="border-bottom-color: black;">
+                    <tbody style="vertical-align: top">
+                        <tr>
+                            <td style="width: 200px;" colspan="2">
+                                <label class="control-label">
+                                    Select Your desired financing option.
+                                </label>
+                            </td>
+
+
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left: 30px;">
+                                <label class="control-label">
+                                    <input id='rdbcash' type='radio' value="val1" class='rg' name="asdf" onclick="showDiv1()" />
+
+
+                                </label>
+                            </td>
+                            <td>
+                                Cash Payment <span id="ctl00_Main_Span8" class="text-danger">&nbsp;</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 30px;">
+                                <label class="control-label">
+                                    <input id='rdb12year' type='radio' value="val2" class='rg' name="asdf" onclick="showDiv2()" />
+
+                                </label>
+                            </td>
+                            <td>
+                                10 Year Financing at 1.99%
+                                <br />
+                                (No interest & No payments on 30% of the total for the first 12 months)<span id="ctl00_Main_Span4" class="">&nbsp;</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 30px;">
+                                <label class="control-label">
+                                    <input id='rdb15year' type='radio' value="val3" class='rg' name="asdf" onclick="showDiv2()" />
+
+                                </label>
+                            </td>
+                            <td>
+                                20 Year Financing at 4.99%<br />
+                                (No interest & No payments on 30% of the total for the first 12 months)<span id="ctl00_Main_Span5" class="">&nbsp;</span>
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+            </div>
+            <div class="col-md-8 col-md-push-0" style="border-radius: 0px; background: #efefef; padding: 20px; margin-left: 20px; /* width: 200px; */text-align: -webkit-left; border-style: groove;">
+                <div id="div1">
+                    <label>With a full upfront payment plan, you can:</label>
+                    <ul>
+                        <li>Own your system</li>
+                        <li>Lock in low electricity costs (even as utility companies continue raising their rates). </li>
+                        <li>Minimize your system cost and maximize your return on investment (ROI)</li>
+                        <li>Avoid the hassle of monthly payments</li>
+                    </ul>
+                </div>
+                <div id="div2" style="display: none">
+                    <label>With a 10 year low-interest solar loan with a manageable upfront payment, you can:</label>
+                    <ul>
+                        <li>Own your system</li>
+                        <li>Lock in low electricity costs (even as utility companies continue raising their rates).</li>
+                        <li>Avoid significant upfront payment while minimizing financing costs</li>
+                    </ul>
+                    <label>Table below shows estimated monthly payments for a 10 year loan with 25% down</label>
+                    <table class="table">
+                        <tr>
+                            <td></td>
+                            <td>Standard</td>
+                            <td>Premium</td>
+                        </tr>
+                        <tr>
+                            <td>4kW Package</td>
+                            <td>$42/mo</td>
+                            <td>$50/mo</td>
+                        </tr>
+                        <tr>
+                            <td>8kW Package</td>
+                            <td>$84/mo</td>
+                            <td>$108/mo</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="div3" style="display: none">
+                    <label>With a 20 year low-interest solar loan with no down payment, you can:</label>
+                    <ul>
+                        <li>Own your system</li>
+                        <li>Lock in low electricity costs (even as utility companies continue raising their rates).</li>
+                        <li>Cash positive from Day 1 with no down payment</li>
+                    </ul>
+                    <label>Table below shows estimated monthly payments for a 20 year loan with no down payment</label>
+                    <table class="table">
+                        <tr>
+                            <td></td>
+                            <td>Standard</td>
+                            <td>Premium</td>
+                        </tr>
+                        <tr>
+                            <td>4kW Package</td>
+                            <td>$45/mo</td>
+                            <td>$54/mo</td>
+                        </tr>
+                        <tr>
+                            <td>8kW Package</td>
+                            <td>$90/mo</td>
+                            <td>$108/mo</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottomdiv1" style="text-align: -webkit-auto; display: none">
+            Solar loans are popular because they allow you to affordably install PV panels while still enjoying the benefits of true system ownership (including incentives and increased property value).<br />
+            <br />
+            To proceed with this financing option, please enter your details below and click submit.
+        </div>
+        <div class="bhoechie-tab-content active" align="center">
+            <hr />
+        </div>
+        <div class="bhoechie-tab-content active" align="center">
+            <div id="ctl00_Main_update1">
+
+
+
+                <div id="ctl00_Main_div20year" style="display: none;">
+
+
+
+                    <div style="margin-top: 15px">
+                        <b>
+                            Thank you for your interest in our 20 year financing option. One of our expert loan officers will be in touch with you shortly. Please continue
+
+                            by clicking on 'Submit' below.
+                        </b>
+                    </div>
+
+
+                </div>
+                <div id="ctl00_Main_divssn" style="display: none;">
+
+
+                    <table>
+                        <tr>
+                            <td style="width: 200px;">
+                                <label class="control-label">
+                                    SSN<span id="ctl00_Main_lblSocialSecurityNumber" class="text-danger">&nbsp;*</span>
+                                </label>
+                            </td>
+                            <td style="width: 250px;">
+                                <input name="ctl00$Main$txtSocialSecurityNumber" type="text" maxlength="9" id="ctl00_Main_txtSocialSecurityNumber" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" style="width:100%;" />
+                                <span id="ctl00_Main_reqtxtSocialSecurityNumber" class="callout" style="display:none;">Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="control-label">
+                                    Drivers Licence #<span id="ctl00_Main_Span1" class="text-danger">&nbsp;*</span>
+                                </label>
+                            </td>
+                            <td>
+                                <input name="ctl00$Main$txtDriverLicence" type="text" id="ctl00_Main_txtDriverLicence" onkeypress="return IsAlphaNumeric(event);" ondrop="return false;" onpaste="return false;" style="width:100%;" />
+                                <span id="ctl00_Main_reqtxtDriverLicence" class="callout" style="display:none;">Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="control-label">
+                                    Drivers Licence State<span id="ctl00_Main_Span2" class="text-danger">&nbsp;*</span>
+                                </label>
+                            </td>
+                            <td>
+                                <select name="ctl00$Main$drpListState" id="ctl00_Main_drpListState" style="height:100%;width:100%;">
+                                    <option selected="selected" value="0">Select</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DC">District of Columbia</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+
+                                </select>
+                                <span id="ctl00_Main_reqdrpListState" class="callout" style="display:none;">Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="control-label">
+                                    Total Household income<span id="ctl00_Main_Span3" class="text-danger">&nbsp;*</span>
+                                </label>
+                            </td>
+                            <td>
+                                <span>$</span>
+                                <input name="ctl00$Main$txtHouseholdIncome" type="text" id="ctl00_Main_txtHouseholdIncome" class="textbox txt_numeric w115" onkeypress="return IsDecimal(event);" ondrop="return false;" onpaste="return false;" style="width:95%;" />
+                                <span id="ctl00_Main_reqtxtHouseholdIncome" class="callout" style="display:none;">Required</span>
+                                <span id="ctl00_Main_regtxtHouseholdIncome" class="callout" style="display:none;">Invalid</span>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div id="ctl00_Main_divdisclaimer" style="display: none;">
+
+                    <div id="ctl00_Main_divdis" style="margin-top: 15px;">
+
+                        <div id="DivforRadio1">
+                            <b>To proceed with a cash option, click submit below</b><br />
+                            <br />
+                        </div>
+
+                    </div>
+
+                    <div id="ctl00_Main_divDisclimer" style="text-align: -webkit-auto;">
+                        <div id="DivforRadio2" style="display: none;">
+                            <input id="ctl00_Main_chkActive" type="checkbox" name="ctl00$Main$chkActive" />
+                            <span id="ctl00_Main_lblcheck"></span>
+                            I/We authorize Simplify Solar, LLC (and their assignees) to make any necessary credit inquires deemed proper in connection with this loan application. I/we authorize and instruct any person or consumer reporting agency to compile and furnish to the Loan company any information, along with the application, shall remain the lending company's property whether or not the loan is approved.<br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div id="bottomdiv2" style="display: none; text-align: -webkit-auto">
+                        <b>Disclaimer:</b> Simplify Solar, LLC is not a lender not does it broker or fund loans. It is not involved in any decisions on loan applications. The information on the website is provided to assist users but is not intended as advice on a course of action and does not make any charges as a result.
+                        All information Simplify Solar, LLC receives will be treated with the strictest confidence and sent to potential lenders under similar terms though the guarantee of confidentiality is the responsibility of the proposed lender. There is no guarantee that an applicant will receive the loan being sought. The APR quoted will reflect the lowest a lender is prepared to offer and may not necessarily be the lowest one in the market. Simplify Solar, LLC does not warrant that the information contained herein or generated hereby is accurate, reliable, current, or error-free. Simplify Solar, LLC makes no representation or warranty regarding the availability of, or the benefit to a user of, any 1) Federal Income Tax Credits; 2) additional income tax credits provided by any city, county, or state; 3) performance based incentive; 4) rebates of any nature, or 5) additional incentives of any nature. All risk of loss or damage is solely that of the user and Simplify Solar hereby disclaims any liability to any user for any direct or indirect loss or damage related to their use of the My Financing section.
+
+                        <br />
+
+                    </div>
+
+                    <div id="bottomdiv3" style="display: none; text-align: -webkit-auto">
+                        <br />
+                        <b>Equal Credit Opportunity Act Notice: </b>If our lending partner makes adverse action on this application, the applicant has a right to a written statement of the specific reasons for the decision. To obtain the statement, the applicant must contact Simplify Solar, LLC at the above address within 60 days from the date of the notification by our lending partner. Simplify Solar, LLC will send the Applicant a written statement for the adverse action within 30 days of receiving the request.
+
+                    </div>
+
+                    <div id="Success" style="margin-top: 1px; display: none;"></div>
+                    <span id="ctl00_Main_lblMessage" style="font-weight: bold"></span>
+
+                    <div id="ctl00_Main_divNext" style="display:none;height: 131px;">
+                        <span id="ctl00_Main_lblmsg" TextMode="MultiLine" style="display:inline-block;height:40px;width:100%;font-weight: bold;"></span>
+                        <span id="ctl00_Main_Label1" style="font-weight: bold">Click Next to continue</span><br />
+                        <br />
+                        <input type="submit" name="ctl00$Main$btnNext" value="Next" onclick="userengage();" id="ctl00_Main_btnNext" class="button" style="background-color:#E67817;height:50px;width:180px;color: #f5f5f5;" />
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+        <div id="ctl00_Main_Div4">
+            <br />
+            <input type="submit" name="ctl00$Main$btnSave" value="Submit" onclick="return checkvalidation();WebForm_DoPostBackWithOptions()" id="ctl00_Main_btnSave" class="button" style="background-color:#E67817;height:50px;width:180px;color: #f5f5f5;" />
+        </div>
+
+        <div id="ss-to-financing" class="ss-next-step ss-hidden">
+                <h3>Thank You For Submitting</h3>    
+            <a href="/dashboard/projectsite" class="ss-button" style="padding: 15px; text-align: center; display: block;  border-radius: 40px; height: 50px; margin-top: 0; margin-bottom: 30px; width: 300px; background-color: #00cd00; border: none; color: white; font-size: 16px;">GO TO MY HOME</a>
+            </div>
+
+    </div>
+
+</div>
+            </div>
+<div class="container-fluid" visible="false">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+
+        <div class="bhoechie-tab">
+        </div>
+    </div>
+</div>
+
+

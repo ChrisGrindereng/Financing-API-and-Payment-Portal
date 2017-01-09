@@ -1,0 +1,150 @@
+﻿/*Temporary JS file for start view in order to clean up code*/
+
+(function () {
+
+    $(document).ready(function () {
+
+        $('.ShowMyModal').on('click', function (e) {
+            var src = $(this).attr('data-src');
+            //var height = $(this).attr('data-height') || 300;
+            //var width = $(this).attr('data-width') || 400;
+
+            $("#installerModal iframe").attr({
+                'src': src
+
+            });
+        });
+        $('#installerModal').on('hidden.bs.modal', function (e) {
+            $(this).find('iframe').attr('src', '');
+        });
+        $('#installerModal').on('shown.bs.modal', function (e) {
+            //iframeSetheight();
+            adjustModalMaxHeightAndPosition();
+        })
+        jQuery('.rgFilterRow td').each(function () {
+            jQuery(this).find('.rgFilterBox, .rgFilter').wrapAll('<div class="filterBox"></div>');
+        }) //beginning
+
+
+
+        //end
+        $("#demo").on("hide.bs.collapse", function () {
+            $(".btn").html('<span class="fa fa-caret-square-o-down"></span> Open');
+        });
+        $("#demo").on("show.bs.collapse", function () {
+            $(".btn").html('<span class="fa fa-caret-square-o-up"></span> Close');
+        });
+
+        $("#divFeature").hide();
+        var KD = '';
+    });
+
+    function SetHeight() {
+        parent.$('#iframeContainer').css('height', parent.$('#iframeContainer').contents().find('.creat_user').height() + 200);
+        parent.$("#dashboard_empty").removeAttr("style");
+    }
+
+    function iframeSetheight() {
+        var frameSource = $('#installerModal').find('iframe');
+        var modalHeight = $('#installerModal').find('iframe').contents().height() + 30;
+        frameSource.height(modalHeight);
+
+    }
+
+    function ResetAvailabilityIcon() {
+        ////document.getElementById("spnCheckEmail").className = "caheck_avail_iconnew emailmsgdis";
+        ////document.getElementById("spnEmailAvailable").className = "caheck_avail_acnew emailmsgnotdis";
+        ////document.getElementById("spnEmailNotAvailable").className = "caheck_avail_nonew emailmsgnotdis";
+        ////document.getElementById("SpnAvailabilityYes").innerHTML = '';
+        ////document.getElementById("SpnAvailabilityNo").innerHTML = '';
+
+        //document.getElementById("spnCheckEmail").className = "caheck_avail_iconnew emailmsgdis";
+        //document.getElementById("spnEmailAvailable").className = "caheck_avail_acnew emailmsgnotdis";
+        //document.getElementById("spnEmailNotAvailable").className = "caheck_avail_nonew emailmsgnotdis";
+        //document.getElementById("SpnAvailabilityYes").innerHTML = '';
+        //document.getElementById("SpnAvailabilityNo").innerHTML = '';
+        jQuery('#spnCheckEmail').show();
+        jQuery('#spnEmailNotAvailable').hide();
+        jQuery('#spnEmailAvailable').hide();
+        jQuery('#spnCheckEmail').css('display', 'block');
+        jQuery('#spnEmailNotAvailable').css('display', 'none');
+        jQuery('#spnEmailAvailable').css('display', 'none');
+
+        jQuery('#spnEmailAvailable').tooltip({
+            title: 'E-mail is available',
+            placement: "top",
+            trigger: "manual"
+        }).tooltip('hide');
+        jQuery('#spnEmailNotAvailable').tooltip({
+            title: 'E-mail already exists, please try another one.',
+            placement: "top",
+            trigger: "manual"
+        }).tooltip('hide');
+    }
+
+    function divplusminusclick() {
+        if ($("#ctl00_Main_hdnplus").val() == "plus") {
+            $('#divplusminus').removeClass("plus-icon").addClass("minus-icon");
+            $("#ctl00_Main_hdnplus").val('minus');
+        }
+        else {
+            $('#divplusminus').removeClass("minus-icon").addClass("plus-icon");
+            $("#ctl00_Main_hdnplus").val('plus');
+        }
+    }
+
+    function divhideshowclick(id) {
+        var newid = id;
+        var newid = "hdnplus" + id;
+        // alert("newid=" + newid);
+        //////  $("#" + newid).val(newid);
+        // alert($("#" + newid).val());
+        if (id == "Silver") {
+            if ($("#" + newid).val() == newid) {
+                // alert("minus-icon click on add ");
+                //$("#togglediv" + id).removeClass("plus-icon").addClass("minus-icon");
+                $("#togglediv" + id).removeClass("plus-icon").addClass("minus-icon");
+                $("#" + newid).val('minusSilver');
+            }
+            else {
+                // alert("plus-icon click on minus")
+                $("#togglediv" + id).removeClass("minus-icon").addClass("plus-icon");
+                $("#" + newid).val(newid);
+            }
+        }
+        else if (id == "Gold") {
+            if ($("#" + newid).val() == newid) {
+                $("#togglediv" + id).removeClass("plus-icon").addClass("minus-icon");
+                $("#" + newid).val('minusGold');
+            }
+            else {
+                $("#togglediv" + id).removeClass("minus-icon").addClass("plus-icon");
+                $("#" + newid).val(newid);
+            }
+        }
+        else if (id == "Platinum") {
+            if ($("#" + newid).val() == newid) {
+                $("#togglediv" + id).removeClass("plus-icon").addClass("minus-icon");
+                $("#" + newid).val('minusPlatinum');
+            }
+            else {
+                $("#togglediv" + id).removeClass("minus-icon").addClass("plus-icon");
+                $("#" + newid).val(newid);
+            }
+        }
+        else if (id == "FinalPackage") {
+            if ($("#" + newid).val() == newid) {
+                // alert("minus-icon click on add ");
+                //$("#togglediv" + id).removeClass("plus-icon").addClass("minus-icon");
+                $("#togglediv" + id).removeClass("plus-icon").addClass("minus-icon");
+                $("#" + newid).val('minusStandard');
+            }
+            else {
+                // alert("plus-icon click on minus")
+                $("#togglediv" + id).removeClass("minus-icon").addClass("plus-icon");
+                $("#" + newid).val(newid);
+            }
+        }
+    }
+
+}).call(this);

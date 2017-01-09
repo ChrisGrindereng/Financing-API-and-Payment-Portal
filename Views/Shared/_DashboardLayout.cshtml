@@ -1,0 +1,319 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>@(String.IsNullOrEmpty(ViewBag.Title) ? "Project Dashboard | Customer | Simplify Solar" : ViewBag.Title)</title>
+    <link rel="stylesheet" type="text/css" href="~/Styles/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/minimal.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/tables.swipetoggle.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/dashboard.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/slider.css" />
+
+</head>
+<body>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="RateModal" class="modal fade" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <span id="ctl00_lblRateQuestion"></span>
+                    </div>
+                    <div>
+                        <div id="ctl00_ratRatings" class="RadRating RadRating_Default" class="divRatings" style="float: left; margin-left: -5px;">
+                            <!-- 2014.2.724.40 --><ul class="rrtHalf">
+                                <li><a title="1" href="#"><span>1</span></a></li>
+                                <li><a title="2" href="#"><span>2</span></a></li>
+                                <li><a title="3" href="#"><span>3</span></a></li>
+                                <li><a title="4" href="#"><span>4</span></a></li>
+                                <li><a title="5" href="#"><span>5</span></a></li>
+                            </ul><input id="ctl00_ratRatings_ClientState" name="ctl00_ratRatings_ClientState" type="hidden" />
+                        </div>
+                    </div>
+                    <div>
+                        <textarea name="ctl00$txtComments" rows="2" cols="20" id="ctl00_txtComments" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer ">
+                    <input type="submit" name="ctl00$btnRateAdd" value="Save" id="ctl00_btnRateAdd" class="btn btn-lg btn-success" />
+                    <input type="submit" name="ctl00$btnRateSkip" value="Skip" id="ctl00_btnRateSkip" class="btn btn-lg btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="header dash-header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid padlr">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="dash-navbar-brand" href="index">
+                        <img src="../images/SSlogo.png" title="SIMPLIFY SOLAR" alt="Simplify Solar" height="70px" />
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="headerusercont" style="border-right: none!important">
+                        <div id="ctl00_dvProfileSettings" class="">
+                            Jason Sears
+                            <div>
+                                <a href="Profile.aspx?Id=cN2EF0i87JI%3d" id="ctl00_aTopProfile" title="Profile" data-toggle="dropdown" class="dropdown-toggle"><span id="ctl00_profileIcon"><i class="user-icon"><img id="ctl00_imgProfile" src="" style="border-radius: 50px;" /></i></span></a>
+                                <ul id="ctl00_divsettingProfile" class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="/Customer/ProjectDetailView.aspx" id="ctl00_aDashboard" title="DASHBOARD">DASHBOARD</a>
+                                    </li>
+                                    <li id="ctl00_liGeneralSettings">
+
+                                        <a href="Profile.aspx?Id=cN2EF0i87JI%3d&CustomerToProjectID=5XI3Ym7rHQc%3d" id="ctl00_aProfile" title="PROFIL">ACCOUNT SETTINGS</a>
+                                    </li>
+
+                                    <li>
+                                        <a id="ctl00_lnkLogOut" title="LOGOUT" href="javascript:__doPostBack(&#39;ctl00$lnkLogOut&#39;,&#39;&#39;)">LOGOUT</a>
+                                    </li>
+                                </ul>
+                            </div>
+                           
+                        </div>
+
+                        <span id="ctl00_divTab" style="display: block; clear: both; padding-top: 3px;"></span>
+                    </div>
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </header>
+
+    <section id="ctl00_divSolarPVDetailHeader" class="userinfo-wrapper">
+        <div class="container-fluid padlr">
+            <div class="headadddiv">
+
+                <div class="user-heading">My Home Solar Dashboard</div>
+
+                <div class="addressdiv maxwidth400px">
+                    <strong>Address:</strong>
+                    3018 Prescott Street Texas United States 77025<br />
+                    <strong>Project Name:</strong>
+                    VASAM_TX_00250
+                </div>
+            </div>
+            <div class="user-heading-rigdiv">
+                <div class="userstatus userstatus1">
+                    <span>@Html.ActionLink("View Notes", "ProjectNotes", "Dashboard")<!--<a href="/Customer/ProjectNotesView.aspx?Id=5XI3Ym7rHQc%3d" id="ctl00_aViewNote" title="View Notes">view notes</a>--></span><span>&nbsp;&nbsp;|&nbsp;</span>
+                    <span>Status:&nbsp; </span><span style="" class='active' id="Span1">Active</span>
+
+                </div>
+                <div id="ctl00_divViewNoteDocumentHeaderLink" class="userlink">
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="ctl00_divStatusProgress" class="dashnavdiv">
+
+
+        <div class="container-fluid padlr">
+            <div class="progressNav">
+                <ul>
+                    <li id="ctl00_aMenuSolarPVSystem1" class="active" title="BUILD MY SOLAR SYSTEM">
+                        <span class="icon-tick"></span>
+
+                        <span id="ctl00_ltrInputSystemSize" title="BUILD MY QUOTE" class="text">BUILD MY SOLAR QUOTE</span>
+                    </li>
+                    <li id="ctl00_aMenuFinancingOption" title="CHOOSE FINANCING" class="curprocc">
+                        <span class="icon-tick"></span>
+                        <span title="CHOOSE FINANCING" class="text">
+                            Choose Financing<br />
+                        </span>
+                    </li>
+                    <li id="ctl00_aMenuSiteSurveyDocUpload1" class="" title="SUBMIT MY HOME INFORMATION">
+                        <span class="icon-tick"></span>
+                        <span class="text" title="SUBMIT MY HOME INFORMATION">Submit My Home Information</span>
+                    </li>
+                    <li id="ctl00_aMenuChooseInstaller1" class="" title="SELECT INSTALLERS">
+                        <span class="icon-tick"></span>
+                        <span title="SELECT INSTALLERS" class="text">
+                            Select<br />
+                            Installers
+                            To Bid
+                        </span>
+                    </li>
+                    <!--<li id="ctl00_aMenuSystemDesign1" class="active" title="SOLAR ELECTRIC SYSTEM DESIGNED">
+                        <span class="icon-tick"></span>
+                        <span title="SOLAR ELECTRIC SYSTEM DESIGNED" class="text">
+                            SOLAR ELECTRIC<br />
+                            SYSTEM
+                            DESIGNED
+                        </span>
+                    </li>
+                    <li id="ctl00_aMenuFinalizedofBid1" title="CHOOSE INSTALLER" class="active">
+                        <span class="icon-tick"></span>
+                        <span title="CHOOSE INSTALLER" class="text">Choose Installer</span>
+                    </li>
+                    <li id="ctl00_aMenuPaperwork" title="SUBMIT PAPERWORK" class="active">
+                        <span class="icon-tick"></span>
+                        <span title="SUBMIT PAPERWORK" class="text">SUBMIT PAPERWORK</span>
+                    </li>-->
+
+                    <li id="ctl00_aMenuPaperwork" title="FINALIZE DESIGN" class="">
+                        <span class="icon-tick"></span>
+                        <span title="FINALIZE DESIGN" class="text">FINALIZE DESIGN</span>
+                    </li>
+
+
+                    <li id="ctl00_aMenuSystemInstalledByInstaller1" title="SYSTEM INSTALLED &amp; COMMISSIONED" class="">
+                        <span class="icon-tick"></span>
+                        <span title="SYSTEM INSTALLED & COMMISSIONED" class="text">
+                            System Installed
+                            <br />
+                            &amp; Commissioned
+                        </span>
+                    </li>
+                    <li id="ctl00_aMenuSubmitReview1" title="SUBMIT REVIEWS" class="">
+                        <span class="icon-tick"></span>
+                        <span class="text">
+                            Submit<br />
+                            Reviews
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="smnavinfodiv">
+                <div id="ctl00_divCurrentStatus" class="currentnavname" style="display: none;">
+                    CHOOSE FINANCING
+                </div>
+                <div id="ctl00_divNextStatus" class="nextproocess">
+                    <a href="/Customer/ProjectDocumentView.aspx?Id=5XI3Ym7rHQc%3d" id="ctl00_ltrNextStatus">NEXT: SUBMIT PAPERWORK</a>
+                </div>
+            </div>
+            <!--<div class="bignavinfodiv">
+                <span id="ctl00_lblCurrentStatus" class="currentnavname" style="display: none;">CHOOSE FINANCING</span>
+                <a href="/Customer/ProjectDocumentView.aspx?Id=5XI3Ym7rHQc%3d" id="ctl00_lblNextStatus" class="nextproocess">NEXT: CHOOSE FINANCING</a>
+            </div>-->
+        </div>
+    </section>
+
+    <input type="hidden" name="ctl00$Main$hdnPackageDetail" id="ctl00_Main_hdnPackageDetail" value="none" />
+
+    <section class="dashboardcont ">
+        <div class="container-fluid">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+
+                <script type="text/javascript">
+    function SetLeftactivemenu(id) {
+        var href = $('#' + id).attr("href");
+        if (href != undefined && href != "") {
+            //$('.boxgreen').removeClass("active");
+            //$('.boxgray').removeClass("active");
+            //$('.boxorange').removeClass("active");
+            $('#' + id).attr('style', 'background-color:#fff;');
+        }
+
+    }
+                </script>
+                <div class="bhoechie-tab-menu">
+                    <div class="list-group">
+                        <!--<a href="/Customer/ProjectDetailView.aspx?Id=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_aSolarPVSystemBuild" title="OVERVIEW" class="list-group-item done" onclick="SetLeftactivemenu(this.id);">-->
+                        <a href="/Dashboard/ProjectOverview?Id=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_aSolarPVSystemBuild" title="OVERVIEW" class="list-group-item " onclick="SetLeftactivemenu(this.id);">
+                            <span id="ctl00_Main_CustomerLeftMenu_divSolarPVSystemBuild">
+                                <i class="overview-icon"></i>OVERVIEW
+                            </span>
+                        </a>
+                        <!--<a href="/Customer/Finance.aspx?CustomerToProjectID=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_aFinancing" title="MY FINANCING" class="list-group-item active">-->
+                        <a href="/Dashboard/ProjectFinancing?Id=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_aFinancing" title="MY FINANCING" class="list-group-item " onclick="SetLeftactivemenu(this.id);">
+                            <div id="ctl00_Main_CustomerLeftMenu_divMyFinancing">
+                                <i class="financing-icon"></i>MY FINANCING
+                            </div>
+                        </a>
+                        <!--<a href="/Customer/SiteSurveyAddEdit.aspx?CustomerToProjectID=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_AUploadSiteSurveyDocument" title="MY HOME" class="list-group-item active">-->
+                        <a href="/Dashboard/ProjectSite?CustomerToProjectID=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_AUploadSiteSurveyDocument" title="MY HOME" class="list-group-item">
+                            <span id="ctl00_Main_CustomerLeftMenu_divUploadSiteSurveyDocument">
+                                <i class="my-home-icon"></i>MY HOME
+                            </span>
+                        </a>
+                        <!--<a href="/Customer/FinalizationofBid.aspx?CustomerToProjectID=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_AChooseInstaller" title="MY INSTALLATION" class="list-group-item done">-->
+                        <a href="/Dashboard/ProjectInstallation?CustomerToProjectID=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_AChooseInstaller" title="MY INSTALLATION" class="list-group-item ">
+                            <span id="ctl00_Main_CustomerLeftMenu_divChooseInstaller">
+                                <i class="installation-icon"></i>MY INSTALLATION
+                            </span>
+                        </a>
+                        <!--<a href="/Customer/ProjectDocumentView.aspx?Id=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_aMyDocument" title="MY DOCUMENTS" class="list-group-item active">-->
+                        <a href="/Dashboard/ProjectDocuments?Id=5XI3Ym7rHQc%3d" id="ctl00_Main_CustomerLeftMenu_aMyDocument" title="MY DOCUMENTS" class="list-group-item">
+                            <div id="ctl00_Main_CustomerLeftMenu_divDocument">
+                                <img src="../images/documentorange.png" id="ctl00_Main_CustomerLeftMenu_imgDocument" class="test" />MY DOCUMENTS
+                            </div>
+                        </a>
+
+                        <!--<a id="ctl00_Main_CustomerLeftMenu_aViewFeedback" title="MY EXPERIENCE" class="list-group-item">-->
+                        <a href="/Dashboard/ProjectExperience" id="ctl00_Main_CustomerLeftMenu_aViewFeedback" title="MY EXPERIENCE" class="list-group-item">
+                            <div id="ctl00_Main_CustomerLeftMenu_divFeedBack">
+                                <i class="experience-icon"></i>MY EXPERIENCE
+                            </div>
+                        </a>
+                        <!--<a id="ctl00_Main_CustomerLeftMenu_aMyMonitoring" title="MY MONITORING" class="list-group-item">-->
+                        <!--<a id="ctl00_Main_CustomerLeftMenu_aMyMonitoring" title="MY MONITORING" class="list-group-item">
+                            <div id="ctl00_Main_CustomerLeftMenu_divMyMonitoring">
+                                <i class="monitoring-icon"></i>MY MONITORING
+                            </div>
+                        </a>-->
+                        <div class="dummybgdiv"></div>
+                    </div>
+                </div>
+
+                @RenderBody()
+
+                </div>
+            </div>
+        </section>
+
+    <footer class="dashfooter">
+        <div class="container-fluid padlr">
+            <div class="footer-widget">
+
+                <h3>TALK TO US</h3>
+                <h4>1 877-9-SIMPLIFY</h4>
+            </div>
+            <div class="dashfooterright">
+
+                <div class="copyright">&copy; Copyright 2016 Simplify Solar. All Rights Reserved</div>
+                <div class="dashfooterlink">
+                    <ul>
+
+                        <li><a title="ABOUT" href="/Content.aspx?Keyword=About-Us " target="_blank">ABOUT<span></span></a></li>
+                        <li><a href="/Testimonials.aspx" title="COMMUNITY" target="_blank">Community<span></span></a></li>
+
+                        <li><a href="/Content.aspx?Keyword=Tools-Resources" title="LEARN" target="_blank">Learn<span></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/dashboard.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/slider.js"></script>
+</body>
+</html>

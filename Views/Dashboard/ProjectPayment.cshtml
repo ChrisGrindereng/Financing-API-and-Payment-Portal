@@ -1,0 +1,414 @@
+﻿
+@{
+    ViewBag.Title = "ProjectPayment";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="bhoechie-tab">
+    <div class="bhoechie-tab-content active" id="btnDiv">
+        <a href="/Customer/Finance.aspx?CustomerToProjectID=5XI3Ym7rHQc=" id="ss-link-financing" title="Choose Financing Plan" class="anchorbutton ss-link-btn">Choose Financing Plan</a>
+        <a id="ss-link-payment" title="Payment Portal" class="anchorbutton active ss-link-btn">Payment Portal</a>
+    </div>
+    <div class="bhoechie-tab-content active">
+
+        <h2>PAYMENT PORTAL</h2>
+        <div class="panel panel-default">
+        </div>
+        <div class="panel panel-default" style="width: 500px; height: 300px; padding-top: 25px; padding-left: 50px; float: left;">
+            <div class="col-md-12">
+                <label style="font-weight: bold; font-size: 20px">Select your down payment</label><br />
+                <br />
+
+                <div id="ss-slider-down-payment" class="ss-slider-container">
+                    <div class="ss-slider-val-container">
+                        <div class="ss-slider-val">$20,000</div>
+                        <div class="ss-triangle-down"></div>
+                    </div>
+                    <div class="ss-slider">
+                        <!--<div id="ss-slider-line-1" class="ss-slider-line"></div>
+                        <div id="ss-slider-line-2" class="ss-slider-line"></div>-->
+                    </div>
+                    <div class="ss-slider-bar"></div>
+                    <div class="ss-slider-bar-background"></div>
+                    <div class="ss-slider-range">
+                        <div class="ss-slider-min">$500</div>
+                        <div class="ss-slider-max">$20,000</div>
+                    </div>
+                </div>
+
+                <div>
+                    <!--<span class="Space" style="font-weight: 100 !important; font-size: 16px;"><input id="ctl00_Main_rdbZeroFinance" type="radio" name="ctl00$Main$Finance" value="rdbZeroFinance" checked="checked" onclick="javascript:DivShowHide();" /><label for="ctl00_Main_rdbZeroFinance">0% down (fully financed)</label></span><br />
+                    <span class="Space" style="font-weight: 100!important; font-size: 16px;"><input id="ctl00_Main_rdbTwoThousandFinance" type="radio" name="ctl00$Main$Finance" value="rdbTwoThousandFinance" onclick="javascript:DivShowHide();" /><label for="ctl00_Main_rdbTwoThousandFinance">$2000 down</label></span><br />
+                    <span class="Space" style="font-weight: 100!important; font-size: 16px;"><input id="ctl00_Main_rdbFiveThousandFinance" type="radio" name="ctl00$Main$Finance" value="rdbFiveThousandFinance" onclick="javascript:DivShowHide();" /><label for="ctl00_Main_rdbFiveThousandFinance">$5000 down</label></span><br />
+                    <span class="Space" style="font-weight: 100!important; font-size: 16px;"><input id="ctl00_Main_rdbHunderedFinance" type="radio" name="ctl00$Main$Finance" value="rdbHunderedFinance" onclick="javascript:DivShowHide();" /><label for="ctl00_Main_rdbHunderedFinance">100% down (cash option)</label></span>-->
+                    <br />
+                    <br />
+                    <b>
+                        <span id="ctl00_Main_lblTotalNetCost" style="font-size: 17px;">My Cost after GME Rebate: $2,988</span>
+                    </b>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="panel panel-default" style="width: 539px; float: right;">
+
+            <div id="DivZeroFinance" style="display: none; border-radius: 0px; background: #efefef; padding: 20px; margin-left: 20px; /* width: 200px; */text-align: -webkit-left; border-style: groove;">
+                <label>Table below shows estimated monthly payments with $0 down for various cost systems:</label>
+                <table class="table">
+                    <tr>
+                        <td>Net Cost</td>
+                        <td>10 year financing</td>
+                        <td>20 year financing</td>
+                    </tr>
+                    <tr>
+                        <td>$8000</td>
+                        <td>$62/mo</td>
+                        <td>$43/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$12000</td>
+                        <td>$92/mo</td>
+                        <td>$64/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$16000</td>
+                        <td>$122/mo</td>
+                        <td>$85/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$20000</td>
+                        <td>$153/mo</td>
+                        <td>$106/mo</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="DivTwoThousandFinance" style="display: none; border-radius: 0px; background: #efefef; padding: 20px; margin-left: 20px; /* width: 200px; */text-align: -webkit-left; border-style: groove;">
+                <label>Table below shows estimated monthly payments with $0 down for various cost systems:</label>
+                <table class="table">
+                    <tr>
+                        <td>Net Cost</td>
+                        <td>10 year financing</td>
+                        <td>20 year financing</td>
+                    </tr>
+                    <tr>
+                        <td>$8000</td>
+                        <td>$40/mo/mo</td>
+                        <td>$28/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$12000</td>
+                        <td>$70/mo</td>
+                        <td>$49/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$16000</td>
+                        <td>$101/mo</td>
+                        <td>$70/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$20000</td>
+                        <td>$132/mo</td>
+                        <td>$91/mo</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="DivFiveThousandFinance" style="display: none; border-radius: 0px; background: #efefef; padding: 20px; margin-left: 20px; /* width: 200px; */text-align: -webkit-left; border-style: groove;">
+                <label>Table below shows estimated monthly payments with $0 down for various cost systems:</label>
+                <table class="table">
+                    <tr>
+                        <td>Net Cost</td>
+                        <td>10 year financing</td>
+                        <td>20 year financing</td>
+                    </tr>
+                    <tr>
+                        <td>$8000</td>
+                        <td>$7/mo</td>
+                        <td>$5/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$12000</td>
+                        <td>$37/mo</td>
+                        <td>$26/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$16000</td>
+                        <td>$68/mo</td>
+                        <td>$47/mo</td>
+                    </tr>
+                    <tr>
+                        <td>$20000</td>
+                        <td>$99/mo</td>
+                        <td>$69/mo</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="DivZeroShowText" class="panel-body fontwt" style="display: none;">
+            <label class="fontwt">If we told you that you could start saving on your energy bills from day 1 with no money down, would you have believed us? Well you’re one step closer to making that a reality. Let’s get you on your way to our 3rd party financing partner’s loan application</label>
+        </div>
+        <div id="DivZeroSuceesText" class="panel-body " style="display: none;">
+            <label class="fontwt">
+                “We’ve received your request to start a loan application! A Simplify Solar representative will follow up with you shortly to help get you started.
+                <br />
+                <br />
+                In the meantime, you should be hearing from your installer to schedule your installation and a pre-install walk-through. If you’d like to reach out to your installer yourself, you can find their contact information in “My Installation”.<br />
+                <br />
+                Also, now may be your chance to learn more about solar on our handy Learn page where you can find questions related to all things solar. Check it out and get educated!”
+            </label>
+        </div>
+        <div id="DivTwoThousandShowText" class="panel-body" style="display: none;">
+            <label class="fontwt">By putting money down, you can lower your interest payments and monthly bills and save more on your energy expenditure. To proceed with paying $2000 down, please select your preferred payment method and enter your information below.</label>
+        </div>
+        <div id="DivFiveThousandShowText" class="panel-body " style="display: none;">
+            <label class="fontwt">By putting money down, you can lower your interest payments and monthly bills and save more on your energy expenditure. To proceed with paying $5000 down, please select your preferred payment method and enter your information below.</label>
+        </div>
+        <div id="DivHundredShowText" class="panel-body " style="display: none;">
+            <label class="fontwt">Financing Schminancing. If you’re ready to maximize your energy savings and your return on investment, paying cash upfront for your system is the way to go! To proceed with paying $<span id="ctl00_Main_lblNetCost">2975.800000</span> down, please select your preferred payment method and enter your information below.</label>
+        </div>
+        <div id="DivShowAfterpay" class="panel-body" style="display: none;">
+            <label class="fontwt">
+                “Thanks for your payment! Please check your email for confirmation. In the meantime, you should be hearing from your installer to schedule your installation and a pre-install walk-through. If you’d like to reach out to your installer yourself, you can find their contact information in “My Installation”.
+                Also, now may be your chance to learn more about solar on our handy Learn page where you can find questions related to all things solar. Check it out and get educated!”
+            </label>
+        </div>
+        <div id="DivNewHundredShowText" class="panel-body" style="display: none;">
+            <label class="fontwt">
+                “We’ve received your request to start a loan application! A Simplify Solar representative will follow up with you shortly to help get you started.
+                <br />
+                <br />
+                In the meantime, you should be hearing from your installer to schedule your installation and a pre-install walk-through. If you’d like to reach out to your installer yourself, you can find their contact information in “My Installation”.
+                <br />
+                <br />
+                Also, now may be your chance to learn more about solar on our handy Learn page where you can find questions related to all things solar. Check it out and get educated!”.
+            </label>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-horizontal hover-stripped formView">
+                <div class="row">
+                    <div id="divbtnCreditCard" class="col-md-3">
+                        <a href="#" id="btnCreditCard" class="btn btn-lg btn-success" title="CREDIT CARD" style="cursor: pointer;" onclick="Show_Div('divbtnCreditCard')">CREDIT CARD</a>
+                    </div>
+                    <div id="divbtnACH" class="col-md-3">
+                        <a href="#" id="btnACH" class="btn btn-lg btn-success" title="ACH" style="cursor: pointer;" onclick="Show_Div('divbtnACH')">ACH</a>
+                    </div>
+                    <div id="divbtnNext" class="col-md-3">
+                        <a id="ctl00_Main_btnNext" class="btn btn-lg btn-success" title="Apply for Loan" style="cursor: pointer;" href="javascript:__doPostBack(&#39;ctl00$Main$btnNext&#39;,&#39;&#39;)">Apply for Loan</a>
+
+                    </div>
+                    <div id="divbtnNext1" class="col-md-6" style="display: none;">
+                        <a href="/Customer/FinalizationofBid.aspx?CustomerToProjectID=5XI3Ym7rHQc%3d" id="ctl00_Main_btnMyInstallationDetails" class="btn btn-lg btn-success" title="MY INSTALLATION DETAILS" style="cursor: pointer; text-transform: none !important; padding: 18px 20px 14px 19px !important;">MY INSTALLATION DETAILS</a>
+                        <a href="/Content.aspx?Keyword=Tools-Resources" id="ctl00_Main_btnLearnAboutSolar" class="btn btn-lg btn-success" title="LEARN ABOUT SOLAR" style="cursor: pointer; text-transform: none !important;">LEARN ABOUT SOLAR</a>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="divCreditCardPayment" style="display: none; margin-top: 15px;">
+            <div id="ctl00_Main_updatepanel1">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="title-right">Fields marked with * are mandatory </div>
+                        <div class="panel-title">Credit Card Details</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-horizontal group-border hover-stripped formView">
+                            <div id="ctl00_Main_pnlUpdate">
+
+                                <div class="form-group">
+                                    <div class="half-form-row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">Card Type <span class="text-danger">&nbsp;*</span></label>
+                                            <div class="controls">
+                                                <select name="ctl00$Main$ddlCardType" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$Main$ddlCardType\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_Main_ddlCardType" class="selectpicker form-control">
+                                                    <option selected="selected" value="0" title="Select Card Type">Select Card Type</option>
+                                                    <option value="61" title="American Express">American Express</option>
+                                                    <option value="62" title="Discover Card">Discover Card</option>
+                                                    <option value="63" title="Master Card">Master Card</option>
+                                                    <option value="64" title="Visa">Visa</option>
+
+                                                </select>
+                                                <span id="ctl00_Main_reqCardType" class="callout right" style="display:none;">Required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="half-form-row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">Card Number<span class="text-danger">&nbsp;*</span></label>
+                                            <div class="controls">
+                                                <input name="ctl00$Main$txtCardNumber" type="text" maxlength="16" id="ctl00_Main_txtCardNumber" class="form-control" autocomplete="false" onkeypress="javascript:return validationOnlyNumber(event);" />
+                                                <span id="ctl00_Main_reqCardNumber" class="callout" style="display:none;">Required</span>
+                                                <span id="ctl00_Main_regCardNumber" class="callout" style="display:none;">Invalid</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="half-form-row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Expiry Date<span class="text-danger">&nbsp;*</span></label>
+                                        <div class="controls">
+                                            <select name="ctl00$Main$ddlExpireMonth" id="ctl00_Main_ddlExpireMonth" class="selectpicker form-control stateSelectBOx">
+                                                <option selected="selected" value="0">MM</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+
+                                            </select>
+                                            <span id="ctl00_Main_reqMonth" class="callout" style="display:none;">Required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label"><span class="text-danger"></span></label>
+                                        <div class="controls">
+                                            <select name="ctl00$Main$ddlExpireYear" id="ctl00_Main_ddlExpireYear" class="selectpicker form-control stateSelectBOx">
+                                                <option value="0">YY</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2016">2016</option>
+
+                                            </select>
+                                            <span id="ctl00_Main_reqYear" class="callout" style="display:none;">Required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="half-form-row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">CVV<span class="text-danger">&nbsp;*</span></label>
+                                        <div class="controls">
+                                            <input name="ctl00$Main$txtCVV" type="password" maxlength="4" id="ctl00_Main_txtCVV" class="form-control" autocomplete="false" />
+                                            <span id="ctl00_Main_reqCVV" class="callout" style="display:none;">Required</span>
+                                            <span id="ctl00_Main_regCVV" class="callout" style="display:none;">Invalid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="half-form-row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">First Name<span class="text-danger">&nbsp;*</span></label>
+                                        <div class="controls">
+                                            <input name="ctl00$Main$txtFirstName" type="text" maxlength="50" id="ctl00_Main_txtFirstName" class="form-control" autocomplete="false" />
+                                            <span id="ctl00_Main_reqFirstName" class="callout" style="display:none;">Required</span>
+                                            <span id="ctl00_Main_regFirstName" class="callout" style="display:none;">Invalid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="half-form-row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Last Name<span class="text-danger">&nbsp;*</span></label>
+                                        <div class="controls">
+                                            <input name="ctl00$Main$txtLastName" type="text" maxlength="50" id="ctl00_Main_txtLastName" class="form-control" autocomplete="false" />
+                                            <span id="ctl00_Main_reqLastName" class="callout" style="display:none;">Required</span>
+                                            <span id="ctl00_Main_regLastName" class="callout" style="display:none;">Invalid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-shadow"></div>
+                </div>
+                <div class="steps-bts">
+                    <input type="submit" name="ctl00$Main$btnCreditPay" value="Pay Now" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnCreditPay&quot;, &quot;&quot;, true, &quot;UserValidation&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnCreditPay" title="PAY NOW" class="btn btn-lg btn-success" />
+                    <input type="submit" name="ctl00$Main$btnCancel" value="Close" id="ctl00_Main_btnCancel" title="CLOSE" class="btn btn-lg btn-default" />
+                </div>
+
+            </div>
+        </div>
+        <div id="divACHPayment" style="display: none; margin-top: 15px;">
+            <div id="ctl00_Main_updatepanel2">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="title-right">Fields marked with * are mandatory </div>
+                        <div class="panel-title">ACH Details</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-horizontal group-border hover-stripped formView">
+                            <div class="form-group">
+                                <div class="half-form-row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Routing Number<span class="text-danger">&nbsp;*</span></label>
+                                        <div class="controls">
+                                            <input name="ctl00$Main$txtRoutingNumber" type="text" maxlength="16" id="ctl00_Main_txtRoutingNumber" class="form-control" autocomplete="false" onkeypress="javascript:return validationOnlyNumber(event);" />
+                                            <span id="ctl00_Main_reqRoutingNumber" class="callout" style="display:none;">Required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="half-form-row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Account Number<span class="text-danger">&nbsp;*</span></label>
+                                        <div class="controls">
+                                            <input name="ctl00$Main$txtAccountNumber" type="text" maxlength="16" id="ctl00_Main_txtAccountNumber" class="form-control" autocomplete="false" onkeypress="javascript:return validationOnlyNumber(event);" />
+                                            <span id="ctl00_Main_reqAccountNumber" class="callout" style="display:none;">Required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="half-form-row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Type of Account<span class="text-danger">&nbsp;*</span></label>
+                                        <div class="controls">
+                                            <select name="ctl00$Main$ddlAccountType" id="ctl00_Main_ddlAccountType" class="selectpicker form-control stateSelectBOx">
+                                                <option selected="selected" value="0">-Select-</option>
+                                                <option value="AK">Personal</option>
+                                                <option value="AL">Business</option>
+
+                                            </select>
+                                            <span id="ctl00_Main_reqAccountType" class="callout" style="display:none;">Required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-shadow"></div>
+                </div>
+                <div class="steps-bts">
+                    <input type="submit" name="ctl00$Main$btnACHPay" value="Pay Now" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnACHPay&quot;, &quot;&quot;, true, &quot;ACHValidation&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnACHPay" title="PAY NOW" class="btn btn-lg btn-success" />
+                    <input type="submit" name="ctl00$Main$Button2" value="Close" id="ctl00_Main_Button2" title="CLOSE" class="btn btn-lg btn-default" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+     
+<input type="hidden" name="ctl00$Main$hdnSelectedPayment" id="ctl00_Main_hdnSelectedPayment" value="0" />
+
+
+

@@ -1,0 +1,233 @@
+﻿@using FinancingAPI.Models
+@model IEnumerable<Installer>
+@{
+    ViewBag.Title = "Project Installation";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<style>
+    table th, table td {
+        width: 150px;
+        padding-right: 1px;
+        text-align: center;
+    }
+
+    table th {
+        color: white;
+        font-weight: normal;
+    }
+
+    table thead tr:first-child th:first-child {
+        border-top-left-radius: 5px;
+    }
+
+    table thead tr:last-child th:last-child {
+        border-top-right-radius: 5px;
+    }
+
+    .ss-zebra {
+        background-color: #d3d3d3;
+    }
+</style>
+
+<div class="bhoechie-tab">
+
+    <div id="ss-installers-container" class="container" style="width: 100%">
+
+                <h2>Invite up to 3 local installers to bid</h2>
+                <button style="border-radius: 40px; height: 50px; width: 200px; background-color: #00cd00; border: none; color: white; font-size: 16px;">CHOOSE FOR ME</button>
+  
+                <h3>Woohoo! We have found @Model.Count() Installers in your area!</h3>
+   
+                <table id="ss-tbl-installers">
+                    <thead>
+                        <tr style="height: 40px; background-color: #333333;">
+                            <th></th>
+                            <th>
+                                @Html.DisplayNameFor(m => m.First().YearFounded)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(m => m.First().NumberOfInstalls)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(m => m.First().AvgInstallerRate)
+                            </th>
+                            <th>Select</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ 
+                            var i = 0;
+                        }
+                        @foreach (var installer in Model)
+                        {
+                            i++;
+                            <tr style="height: 40px;" class="@(@i % 2 == 0 ? "ss-zebra" : "")">
+                                <td>@installer.Name</td>
+                                <td>@(DateTime.Today.Year - @installer.YearFounded.Year)</td>
+                                <td>@installer.NumberOfInstalls</td>
+                                <td>@installer.AvgInstallerRate</td>
+                                <td><input type="checkbox" /></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+        <button style="border-radius: 40px; height: 50px; margin-top: 20px; margin-bottom: 80px; width: 200px; background-color: #00cd00; border: none; color: white; font-size: 16px;">GET BIDS</button>
+            
+        <h3>Choose Your Installer</h3>
+        <table id="ss-tbl-installion-bids">
+            <thead>
+                <tr style="height: 40px; background-color: #333333;">
+                    <th></th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.First().YearFounded)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.First().NumberOfInstalls)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.First().AvgInstallerRate)
+                    </th>
+                    <th>Installation Bid</th>
+                    <th>Total Project Cost</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    i = 0;
+                    var random = new Random();
+                    
+                }
+                @foreach (var installer in Model)
+                {
+                   
+                    i++;
+                    <tr style="height: 40px;" class="@(@i % 2 == 0 ? "ss-zebra" : "")">
+                        <td>@installer.Name</td>
+                        <td>@(DateTime.Today.Year - @installer.YearFounded.Year)</td>
+                        <td>@installer.NumberOfInstalls</td>
+                        <td>@installer.AvgInstallerRate</td>
+                        <td>$@random.Next(5000, 6000)</td>
+                        <td>$@random.Next(12000, 15000)</td>
+                        <td><input type="radio" name="ss-radio-installer" /></td>
+                    </tr>
+                    if (i > 2)
+                    {
+                        break;
+                    }
+                    }
+            </tbody>
+        </table>
+
+        <button style="border-radius: 40px; height: 50px; margin-top: 20px; margin-bottom: 80px; width: 400px; background-color: #00cd00; border: none; color: white; font-size: 16px;">SCHEDULE MY INSTALLATION</button>
+    
+        <div id="ctl00_Main_installerdetails" class="panel panel-default">
+            <div class="panel-heading noNote">
+                <div class="title-right"></div>
+                <div class="panel-title">Installation Details</div>
+            </div>
+            <div class="panel-body overflowH">
+                <div class="form-horizontal group-border hover-stripped formView">
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Installer Name</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left: 51px;">
+                                        Green Ox Energy Solutions
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width: 40%;">Final System Size (kW)</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left: 51px;">
+                                        5.00
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Installer Email</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left: 51px;">
+                                        sathvik@simplifysolar.com
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Bid Amount ($)</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left: 51px;">
+                                        $2500.00
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width: 170px;">Installer Phone</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left: 51px;">
+                                        888-928-8698
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width: 40%;">Total System Cost After Tax($)</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left: 51px;">
+                                        $2,988
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="half-form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label" style="width: 170px;">Installation Date</label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left: 51px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label"></label>
+                                <div class="controls padri10">
+                                    <div class="filledVlaue" style="margin-left: 51px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="bottom-shadow"></div>
+        </div>
+
+        <div class="steps-bts">
+            <!--<input type="submit" name="ctl00$Main$btnMyDocuments" value="Sign My Documents" id="ctl00_Main_btnMyDocuments" title="Sign My Documents" class="btn btn-lg btn-success" style="padding: 18px 20px 14px 19px !important;" />-->
+            <a href="/dashboard/projectdocuments" name="ctl00$Main$btnMyDocuments" value="Sign My Documents" id="ctl00_Main_btnMyDocuments" title="Sign My Documents" class="btn btn-lg btn-success" style="padding: 18px 20px 14px 19px !important;">Sign My Documents</a>
+
+
+
+
+        </div>
+     
+        </div>
+
+

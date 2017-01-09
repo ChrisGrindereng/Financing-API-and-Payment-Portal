@@ -1,0 +1,767 @@
+﻿
+@{
+    ViewBag.Title = "ProjectSite";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div id="ctl00_Main_updateProgress" style="display:none;">
+
+    <div class="updatepaneldiv">
+        <img id="ctl00_Main_imgUpdateProgress" title="Loading ..." class="updatepanelimage" src="/Images/loading1.gif" alt="Loading ..." />
+    </div>
+
+</div>
+<input type="hidden" name="ctl00$Main$hdnAddress" id="ctl00_Main_hdnAddress" value="3018 Prescott Street, Texas, United States, 77025" />
+<input type="hidden" name="ctl00$Main$hdnAddresslat" id="ctl00_Main_hdnAddresslat" value="0" />
+<input type="hidden" name="ctl00$Main$hdnAddresslng" id="ctl00_Main_hdnAddresslng" value="0" />
+
+<input type="hidden" name="ctl00$Main$hdnMapDrawinglatlng" id="ctl00_Main_hdnMapDrawinglatlng" />
+
+<input type="hidden" name="ctl00$Main$hdnMeter" id="ctl00_Main_hdnMeter" />
+<input type="hidden" name="ctl00$Main$hdnMeterlat" id="ctl00_Main_hdnMeterlat" value="0" />
+<input type="hidden" name="ctl00$Main$hdnMeterlng" id="ctl00_Main_hdnMeterlng" value="0" />
+
+<input type="hidden" name="ctl00$Main$hdnRoof" id="ctl00_Main_hdnRoof" />
+<input type="hidden" name="ctl00$Main$hdnRooflat" id="ctl00_Main_hdnRooflat" value="0" />
+<input type="hidden" name="ctl00$Main$hdnRooflng" id="ctl00_Main_hdnRooflng" value="0" />
+
+<input type="hidden" name="ctl00$Main$hdnPanel" id="ctl00_Main_hdnPanel" />
+<input type="hidden" name="ctl00$Main$hdnPanellat" id="ctl00_Main_hdnPanellat" value="0" />
+<input type="hidden" name="ctl00$Main$hdnPanellng" id="ctl00_Main_hdnPanellng" value="0" />
+
+
+
+<input type="hidden" name="ctl00$Main$hdnUploadedAllDocument" id="ctl00_Main_hdnUploadedAllDocument" value="false" />
+
+<div class="bhoechie-tab">
+    <div class="bhoechie-tab-content active">
+        <h2 id="ctl00_Main_h1Title" class="bornone">Upload My Home Info</h2>
+
+        <a href="https://gme.simplifysolar.com/Customer/Content/Guide to Uploading Photos-2.pdf" id="ctl00_Main_aQuickGuidetoUploadingPhotos" class="btn btn-primary pull-right lnkguidedoc" style="margin-bottom: 10px;" target="_blank" title="GUIDE TO UPLOADING PHOTOS">GUIDE TO UPLOADING PHOTOS</a>
+
+        <div class="clearboth"></div>
+        <section class="forms">
+
+            <p style="font-size: medium; margin-bottom: 20px; border-bottom: 1px solid; padding-bottom: 30px;">
+                The My Home Portal of the Simplify Solar platform allows you to seamlessly upload pictures of your home. Don't worry, you won't need to climb up on your roof! Just snap a few pictures of your home and add them to your project. Once uploaded, you will be prompted to tag the location of that image in the map view of your home. Got questions? Click on the ‘Guide to Uploading Photos’ for tips, tricks and frequently asked questions.
+
+
+            </p>
+
+            <div id="map_canvas" style="width: 100%; height: 400px;">
+            </div>
+            <br />
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading twoNote">
+                   <!-- <div class="title-right towLine">
+                        Fields marked with * are mandatory<br />
+                        <strong>Note:</strong>
+                        Please upload .jpg, .jpeg, .gif, .png and .bmp file upto 5MB only.
+                    </div>-->
+                    <div class="panel-title">Electrical Information</div>
+                </div>
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal group-border hover-stripped">
+                        <!--Meter- Image ------>
+                        <div class="form-group">
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label">Meter</label>
+
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/meter1Thumbcrop.jpg' style='height:120px;width:120px;'/>Close up">i</i>
+
+                                        <span id="imgMarkerMeter" class="geoIcon" title="Set Geo Location" onclick="AddMarkerMeter();" style="display: block; cursor: pointer;"></span>
+                                        <span class="backStar">*</span>
+                                        <div class="browsediv isGeo" id="DivMeterVisible" style="display: block">
+                                            <div class="pull-right" id="divMeterImage" style="display: block; padding-left: 10px;">
+
+                                                <input name="ctl00$Main$txtmeMeterImage" type="text" id="ctl00_Main_txtmeMeterImage" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <div style="display: none">
+                                                    <input type="button" value="CANCEL" class="btn btn-danger" style="display: none" title="CANCEL" onclick="CancelMeterImageFile();" />
+                                                </div>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldMeter" id="ctl00_Main_fldMeter" value="BROWSE" Size="19" class="filestyle" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldMeter&#39;,&#39;ctl00_Main_txtmeMeterImage&#39;)" />
+                                        </div>
+                                        <div class="browsediv isGeo" id="divMeterImageDownload" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkMeterImage" class="downloadlink"></a>
+                                                    <a id="ctl00_Main_lnkMeterThumb" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgMeterThumb" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <label class="btn btn-default " title="CHANGE" onclick="ChangeMeterImage()"><span class="glyphicon glyphicon-folder-open"></span>CHANGE</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnDeleteMeter" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Meter Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnDeleteMeter&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnDeleteMeter" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_reqfldMeterImage" class="callout" style="display:none;">Required</span>
+                                        <span id="ctl00_Main_regmeMeterImage" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvMeterImage" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivMeterImage" id="ctl00_Main_hdndivMeterImage" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnMeterDocument" id="ctl00_Main_hdnMeterDocument" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnMeterCancel" id="ctl00_Main_hdnMeterCancel" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnMeterImageName" id="ctl00_Main_hdnMeterImageName" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/meter1Thumbcrop.jpg' style='height:120px;width:120px;'/>Close up">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Panel- Image 1 ------>
+                        <div class="form-group">
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label">Service Panel</label>
+
+                                   
+
+
+
+
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/ServicePanel1Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/>Close up">i</i>
+
+                                        <span id="imgMarkerPanel" class="geoIcon" title="Set Geo Location" onclick="AddMarkerPanel();" style="display: block; cursor: pointer;"></span>
+                                        <span class="backStar">*</span>
+                                        <div class="browsediv isGeo" id="DivPanle1Visible" style="display: block">
+                                            <div class="pull-right" id="divPanelImage" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmePanelImage" type="text" id="ctl00_Main_txtmePanelImage" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <span style="display: none">
+                                                    <input type="button" value="Cancel" class="btn btn-danger" style="display: none" title="Cancel" onclick="CancelPanelImageFile();" />
+                                                </span>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldPanelImage" id="ctl00_Main_fldPanelImage" class="filestyle" Size="19" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldPanelImage&#39;,&#39;ctl00_Main_txtmePanelImage&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divPanelImageDownload" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkPanelImage" class="downloadlink"></a>
+                                                    <a id="ctl00_Main_lnkPanelThumb" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgPanelThumb" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <input type="button" class="btn btn-default" onclick="ChangePanelImage()" title="Change" value="Change" />
+                                                    <span class="glyphicon glyphicon-folder-open"></span>Change
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnPanelDelete" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Service Panel Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnPanelDelete&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnPanelDelete" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_reqfldPanelImage" class="callout" style="display:none;">Required</span>
+                                        <span id="ctl00_Main_regtxtmePanelImage" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldPanelImage" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivPanelImage" id="ctl00_Main_hdndivPanelImage" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelDocument" id="ctl00_Main_hdnPanelDocument" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelCancel" id="ctl00_Main_hdnPanelCancel" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelImageName" id="ctl00_Main_hdnPanelImageName" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/ServicePanel1Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/>Close up">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Panel- Image 2 ------>
+
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label"></label>
+                                    <div class="controls padri10">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/servicepanel2Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/>Surrounding area">i</i>
+                                        <span class="geoIcon" style="display: block; cursor: pointer; visibility: hidden;"></span>
+                                        <span class="backStar">*</span>
+                                        <div class="browsediv isGeo" id="DivPanle2Visible" style="display: block">
+                                            <div class="pull-right" id="divPanelImage2" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmePanelImage2" type="text" id="ctl00_Main_txtmePanelImage2" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <span style="display: none">
+                                                    <input type="button" value="CANCEL" class="btn btn-danger" style="display: none" title="CANCEL" onclick="CancelPanelImageFile2();" />
+                                                </span>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldPanelImage2" id="ctl00_Main_fldPanelImage2" class="filestyle" Size="19" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldPanelImage2&#39;,&#39;ctl00_Main_txtmePanelImage2&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divPanelImageDownload2" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkPanelImage2" class="downloadlink"></a>
+                                                    <a id="ctl00_Main_lnkPanelThumb2" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgPanelThumb2" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <input type="button" class="btn btn-default" onclick="ChangePanelImage2()" title="Change" value="Change" /><span class="glyphicon glyphicon-folder-open"></span>Change</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnPanelDelete2" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Service Panel Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnPanelDelete2&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnPanelDelete2" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_reqfldPanelImage2" class="callout" style="display:none;">Required</span>
+                                        <span id="ctl00_Main_regtxtmePanelImage2" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldPanelImage2" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivPanelImage2" id="ctl00_Main_hdndivPanelImage2" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelDocument2" id="ctl00_Main_hdnPanelDocument2" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelCancel2" id="ctl00_Main_hdnPanelCancel2" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelImageName2" id="ctl00_Main_hdnPanelImageName2" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/servicepanel2Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/>Surrounding area">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <!--Panel- Image 3------>
+
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label"><span class="text-danger"></span></label>
+                                    <div class="controls padri10">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/servicepanel3Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Sub-panel, if necessary">i</i>
+                                        <div class="browsediv isGeo" id="DivPanle3Visible" style="display: block">
+                                            <div class="pull-right" id="divPanelImage3" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmePanelImage3" type="text" id="ctl00_Main_txtmePanelImage3" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <div style="display: none">
+                                                    <input type="button" value="Cancel" class="btn btn-danger" style="display: none" title="Cancel" onclick="CancelPanelImageFile3();" />
+                                                </div>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldPanelImage3" id="ctl00_Main_fldPanelImage3" class="filestyle" Size="19" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldPanelImage3&#39;,&#39;ctl00_Main_txtmePanelImage3&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divPanelImageDownload3" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkPanelImage3" style="padding: 0 5px 0 5px; height: auto;"></a>
+                                                    <a id="ctl00_Main_lnkPanelThumb3" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgPanelThumb3" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <input type="button" class="btn btn-default" onclick="ChangePanelImage3()" title="Change" value="Change" /><span class="glyphicon glyphicon-folder-open"></span>Change</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnPanelDelete3" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Service Panel Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnPanelDelete3&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnPanelDelete3" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_regtxtmePanelImage3" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldPanelImage3" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivPanelImage3" id="ctl00_Main_hdndivPanelImage3" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelDocument3" id="ctl00_Main_hdnPanelDocument3" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelCancel3" id="ctl00_Main_hdnPanelCancel3" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnPanelImageName3" id="ctl00_Main_hdnPanelImageName3" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/servicepanel3Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Sub-panel, if necessary">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-shadow"></div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading twoNote">
+                    <!--<div class="title-right towLine">
+                        Fields marked with * are mandatory<br />
+                        <strong>Note:</strong>
+                        Please upload .jpg, .jpeg, .gif, .png and .bmp file upto 5MB only.
+                    </div>-->
+                    <div class="panel-title">Structural Information</div>
+                </div>
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal group-border hover-stripped">
+                        <!--Roof- Image 1 ------>
+                        <div class="form-group">
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label">Roof</label>
+                              
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Roof1Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Main roof for solar">i</i>
+
+                                        <span id="imgMarkerRoof" class="geoIcon" title="Set Geo Location" onclick="AddMarkerRoof();" style="display: block; cursor: pointer;"></span>
+                                        <span class="backStar">*</span>
+                                        <div class="browsediv isGeo" id="DivRoof1Visible" style="display: block">
+                                            <div class="pull-right" id="divRoofImage" style="display: block; padding-left: 10px;">
+
+                                                <input name="ctl00$Main$txtmeRoofImage" type="text" id="ctl00_Main_txtmeRoofImage" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <div style="display: none">
+                                                    <input type="button" value="Cancel" class="btn btn-danger" style="display: none" title="Cancel" onclick="CancelRoofImageFile();" />
+                                                </div>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldRoofImage" id="ctl00_Main_fldRoofImage" class="filestyle" Size="19" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldRoofImage&#39;,&#39;ctl00_Main_txtmeRoofImage&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divRoofImageDownload" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkRoofImage" style="padding: 0 5px 0 5px; height: auto;"></a>
+                                                    <a id="ctl00_Main_lnkRoofThumb" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgRoofThumb" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <label class="btn btn-default " title="CHANGE" onclick="ChangeRoofImage()"><span class="glyphicon glyphicon-folder-open"></span>CHANGE</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnRoofDelete" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Roof Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnRoofDelete&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnRoofDelete" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_reqfldRoofImage" class="callout" style="display:none;">Required</span>
+                                        <span id="ctl00_Main_regtxtmeRoofImage" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldRoofImage" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivRoofImage" id="ctl00_Main_hdndivRoofImage" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofDocument" id="ctl00_Main_hdnRoofDocument" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofCancel" id="ctl00_Main_hdnRoofCancel" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofImageName" id="ctl00_Main_hdnRoofImageName" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Roof1Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Main roof for solar">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <!--Roof- Image 2 ------>
+
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label"></label>
+                                
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Roof2Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/>Alternate view">i</i>
+                                        <span class="geoIcon" style="display: block; cursor: pointer; visibility:hidden;"></span>
+                                        <span class="backStar">*</span>
+                                        <div class="browsediv isGeo" id="DivRoof2Visible" style="display: block">
+                                            <div class="pull-right" id="divRoofImage2" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmeRoofImage2" type="text" id="ctl00_Main_txtmeRoofImage2" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <div style="display: none">
+                                                    <input type="button" value="Cancel" class="btn btn-danger" style="display: none" title="Cancel" onclick="CancelRoofImageFile2();" />
+                                                </div>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldRoofImage2" id="ctl00_Main_fldRoofImage2" class="filestyle" Size="19" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldRoofImage2&#39;,&#39;ctl00_Main_txtmeRoofImage2&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divRoofImageDownload2" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkRoofImage2" style="padding: 0 5px 0 5px; height: auto;"></a>
+                                                    <a id="ctl00_Main_lnkRoofThumb2" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgRoofThumb2" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <label class="btn btn-default " title="CHANGE" onclick="ChangeRoofImage2()"><span class="glyphicon glyphicon-folder-open"></span>CHANGE</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnRoofDelete2" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Roof Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnRoofDelete2&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnRoofDelete2" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_reqfldRoofImage2" class="callout" style="display:none;">Required</span>
+                                        <span id="ctl00_Main_regtxtmeRoofImage2" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldRoofImage2" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivRoofImage2" id="ctl00_Main_hdndivRoofImage2" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofDocument2" id="ctl00_Main_hdnRoofDocument2" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofCancel2" id="ctl00_Main_hdnRoofCancel2" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofImageName2" id="ctl00_Main_hdnRoofImageName2" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Roof2Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/>Alternate view">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--Roof- Image 3 ------>
+
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label"><span class="text-danger"></span></label>
+                                    <div class="controls padri10">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Roof3Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Additional roof, if necessary">i</i>
+                                        <div class="browsediv isGeo" id="DivRoof3Visible" style="display: block">
+                                            <div class="pull-right" id="divRoofImage3" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmeRoofImage3" type="text" id="ctl00_Main_txtmeRoofImage3" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <div style="display: none">
+                                                    <input type="button" value="Cancel" class="btn btn-danger" style="display: none" title="Cancel" onclick="CancelRoofImageFile3();" />
+                                                </div>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldRoofImage3" id="ctl00_Main_fldRoofImage3" class="filestyle" Size="19" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldRoofImage3&#39;,&#39;ctl00_Main_txtmeRoofImage3&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divRoofImageDownload3" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkRoofImage3" style="padding: 0 5px 0 5px; height: auto;"></a>
+                                                    <a id="ctl00_Main_lnkRoofThumb3" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgRoofThumb3" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <label class="btn btn-default " title="CHANGE" onclick="ChangeRoofImage3()"><span class="glyphicon glyphicon-folder-open"></span>CHANGE</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnRoofDelete3" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Roof Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnRoofDelete3&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnRoofDelete3" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span class="star redstar">
+                                            <span id="ctl00_Main_regtxtmeRoofImage3" class="callout" style="display:none;">Invalid</span>
+                                            <span id="ctl00_Main_cvfldRoofImage3" class="callout" style="display:none;">Invalid</span>
+                                        </span>
+                                        <input type="hidden" name="ctl00$Main$hdndivRoofImage3" id="ctl00_Main_hdndivRoofImage3" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofDocument3" id="ctl00_Main_hdnRoofDocument3" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofCancel3" id="ctl00_Main_hdnRoofCancel3" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofImageName3" id="ctl00_Main_hdnRoofImageName3" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Roof3Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Additional roof, if necessary">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--Roof- Image 4 ------>
+
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label"></label>
+                                    <div class="controls padri10">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Roof4Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Additional roof, if necessary">i</i>
+                                        <div class="browsediv isGeo" id="DivRoof4Visible" style="display: block">
+                                            <div class="pull-right" id="divRoofImage4" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmeRoofImage4" type="text" id="ctl00_Main_txtmeRoofImage4" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <div style="display: none">
+                                                    <input type="button" value="Cancel" class="btn btn-danger" style="display: none" title="Cancel" onclick="CancelRoofImageFile4();" />
+                                                </div>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldRoofImage4" id="ctl00_Main_fldRoofImage4" class="filestyle" Size="19" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldRoofImage4&#39;,&#39;ctl00_Main_txtmeRoofImage4&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divRoofImageDownload4" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkRoofImage4" class="downloadlink"></a>
+                                                    <a id="ctl00_Main_lnkRoofThumb4" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgRoofThumb4" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <label class="btn btn-default " title="CHANGE" onclick="ChangeRoofImage4()"><span class="glyphicon glyphicon-folder-open"></span>CHANGE</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnRoofDelete4" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Roof Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnRoofDelete4&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnRoofDelete4" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_regtxtmeRoofImage4" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldRoofImage4" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivRoofImage4" id="ctl00_Main_hdndivRoofImage4" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofDocument4" id="ctl00_Main_hdnRoofDocument4" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofCancel4" id="ctl00_Main_hdnRoofCancel4" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRoofImageName4" id="ctl00_Main_hdnRoofImageName4" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Roof4Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Additional roof, if necessary">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--Rafter / Truss 1 ------>
+                        <div class="form-group">
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label">Rafter / Truss</label>
+                                   
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Rafter1_2x4_24O.C.Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Attic view">i</i>
+                                        <span class="geoIcon" style="display: block; cursor: pointer; visibility:hidden;"></span>
+                                        <span class="backStar">*</span>
+
+                                        <div class="browsediv isGeo" id="divRaftervisible1" style="display: block">
+                                            <div class="pull-right" id="divRafterSizeImage" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmeRafterSize" type="text" id="ctl00_Main_txtmeRafterSize" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <span style="display: none">
+                                                    <input type="button" value="CANCEL" class="btn btn-danger" style="display: none" title="CANCEL" onclick="CancelRafterSizeImageFile();" />
+                                                </span>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldRafterSize" id="ctl00_Main_fldRafterSize" value="BROWSE" Size="19" class="filestyle" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldRafterSize&#39;,&#39;ctl00_Main_txtmeRafterSize&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divRafterSizeImageDownload" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkRafterSizeImage" class="downloadlink"></a>
+                                                    <a id="ctl00_Main_lnkRafterSizeThumb" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgRafterSizeThumb" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <label class="btn btn-default " title="CHANGE" onclick="ChangeRafterSizeImage()"><span class="glyphicon glyphicon-folder-open"></span>CHANGE</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnRafterSizeDelete" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Rafter / Truss Size Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnRafterSizeDelete&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnRafterSizeDelete" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_reqfldRafterSize" class="callout" style="display:none;">Required</span>
+                                        <span id="ctl00_Main_regtxtmeRafterSize" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldRafterSize" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivRafterSizeImage" id="ctl00_Main_hdndivRafterSizeImage" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnRafterSizeDocument" id="ctl00_Main_hdnRafterSizeDocument" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRafterSizeCancel" id="ctl00_Main_hdnRafterSizeCancel" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRafterSizeImageName" id="ctl00_Main_hdnRafterSizeImageName" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Rafter1_2x4_24O.C.Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Attic view">i</i> INFORMATION
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--Rafter / Truss 2 ------>
+
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label"></label>
+                                    
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Rafter2_2x6_16O.C.Thumb.JPG' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Close up of rafters/trusses">i</i>
+                                        <span class="geoIcon" style="display: block; cursor: pointer; visibility:hidden;"></span>
+                                        <span class="backStar">*</span>
+
+                                        <div class="browsediv isGeo" id="divRaftervisible2" style="display: block">
+                                            <div class="pull-right" id="divRafterSpacingImage" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmeRafterSpacing" type="text" id="ctl00_Main_txtmeRafterSpacing" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <span style="display: none">
+                                                    <input type="button" value="CANCEL" class="btn btn-danger" style="display: none" title="CANCEL" onclick="CancelRafterSpacingImageFile();" />
+                                                </span>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldRafterSpacing" id="ctl00_Main_fldRafterSpacing" value="BROWSE" Size="19" class="filestyle" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldRafterSpacing&#39;,&#39;ctl00_Main_txtmeRafterSpacing&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divRafterSpacingImageDownload" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkRafterSpacingImage" class="downloadlink"></a>
+                                                    <a id="ctl00_Main_lnkRafterSpacingThumb" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgRafterSpacingThumb" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <label class="btn btn-default " title="CHANGE" onclick="ChangeRafterSpacingImage()"><span class="glyphicon glyphicon-folder-open"></span>CHANGE</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnRafterSpacingDelete" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Rafter / Truss Spacing Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnRafterSpacingDelete&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnRafterSpacingDelete" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+                                        <span id="ctl00_Main_reqfldRafterSpacing" class="callout" style="display:none;">Required</span>
+                                        <span id="ctl00_Main_regtxtmeRafterSpacing" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldRafterSpacing" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivRafterSpacingImage" id="ctl00_Main_hdndivRafterSpacingImage" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnRafterSpacingDocument" id="ctl00_Main_hdnRafterSpacingDocument" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRafterSpacingCancel" id="ctl00_Main_hdnRafterSpacingCancel" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnRafterSpacingImageName" id="ctl00_Main_hdnRafterSpacingImageName" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Rafter2_2x6_16O.C.Thumb.JPG' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Close up of rafters/trusses">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Insulation ------>
+                        <div class="form-group">
+                            <div class="half-form-row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label class="control-label">Insulation<span class="text-danger">&nbsp;*</span></label>
+                                    <div class="controls">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input id="ctl00_Main_rbtYes" type="radio" name="ctl00$Main$grpInsulation" value="rbtYes" checked="checked" /><label for="ctl00_Main_rbtYes"> Yes</label>
+                                            </label>
+                                            <label>
+                                                <input id="ctl00_Main_rbtNo" type="radio" name="ctl00$Main$grpInsulation" value="rbtNo" /><label for="ctl00_Main_rbtNo"> No</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12" id="divInsulation">
+                                    <div class="browerrpdiv">
+
+                                        <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Insulation1Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Insulation in attic">i</i>
+                                        <span class="geoIcon" style="display: block; cursor: pointer; visibility:hidden;"></span>
+                                        <span class="backStar">*</span>
+
+                                        <div class="browsediv isGeo" id="divInsulationVisible" style="display: block">
+                                            <div class="pull-right" id="divInsulationImage" style="display: block; padding-left: 10px;">
+                                                <input name="ctl00$Main$txtmeInsulation" type="text" id="ctl00_Main_txtmeInsulation" class="filestyle" style="display: none;" />
+                                                <input type="button" value="Browse" style="display: none;" class="filestyle" title="Browse" />
+                                                <span style="display: none">
+                                                    <input type="button" value="CANCEL" class="btn btn-danger" style="display: none" title="CANCEL" onclick="CancelInsulationImageFile();" />
+                                                </span>
+                                            </div>
+                                            <input type="file" name="ctl00$Main$fldInsulationImage" id="ctl00_Main_fldInsulationImage" class="filestyle" Size="19" OnChange="return UploadFileSelect(&#39;ctl00_Main_fldInsulationImage&#39;,&#39;ctl00_Main_txtmeInsulation&#39;)" />
+                                        </div>
+                                        <div class="browsediv" id="divInsulationImageDownload" style="display: none">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <div class="form-control" style="padding: 0 5px 0 5px; height: auto;">
+                                                    <a id="ctl00_Main_lnkInsulationImage" class="downloadlink"></a>
+                                                    <a id="ctl00_Main_lnkInsulationThumb" class="downloadlink highslide fancybox">
+                                                        <img id="ctl00_Main_ImgInsulationThumb" src="" style="height: 38px; width: auto;" />
+                                                    </a>
+                                                </div>
+                                                <div class="group-span-filestyle input-group-btn" style="width: auto;">
+                                                    <label class="btn btn-default " title="CHANGE" onclick="ChangeInsulationImage()"><span class="glyphicon glyphicon-folder-open"></span>CHANGE</label>
+                                                    <div class="btn btn-default">
+                                                        <input type="submit" name="ctl00$Main$btnInsulationDelete" value="DELETE" onclick="return confirm(&#39;Are you sure you want to delete this Insulation Image?&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnInsulationDelete&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnInsulationDelete" title="DELETE" style="background-color: transparent; width: 100%; height: 100%; border: 0; color: red;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="browerrpdiv">
+
+                                        <span id="ctl00_Main_reqfldInsulationImage" class="callout" style="display:none;">Required</span>
+                                        <span id="ctl00_Main_regtxtmeInsulation" class="callout" style="display:none;">Invalid</span>
+                                        <span id="ctl00_Main_cvfldInsulationImage" class="callout" style="display:none;">Invalid</span>
+                                        <input type="hidden" name="ctl00$Main$hdndivInsulationImage" id="ctl00_Main_hdndivInsulationImage" value="block" />
+                                        <input type="hidden" name="ctl00$Main$hdnInsulationDocument" id="ctl00_Main_hdnInsulationDocument" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnInsulationCancel" id="ctl00_Main_hdnInsulationCancel" value="none" />
+                                        <input type="hidden" name="ctl00$Main$hdnInsulationImageName" id="ctl00_Main_hdnInsulationImageName" />
+                                        <div class="infomationsp">
+                                            <i class="icon-info" title="" data-placement="top" data-toggle="tooltip" data-original-title="<b>Sample Picture</b><img src='../Admin/Images/Insulation1Thumb.jpg' style='margin-top:10px;margin-bottom:10px;height:120px;width:120px;'/><br/>Insulation in attic">i</i>
+                                            INFORMATION
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-shadow"></div>
+            </div>
+            <div id="progressMsg" style="display:none;">Your progress has been saved.</div>
+            <div class="steps-bts">
+                <input type="submit" name="ctl00$Main$btnSaveProgress" value="SAVE PROGRESS" onclick="showloading1();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnSaveProgress&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnSaveProgress" class="btn btn-lg btn-success" />
+                <input type="submit" name="ctl00$Main$btnAdd" value="Save" onclick="return showloading();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Main$btnAdd&quot;, &quot;&quot;, true, &quot;UserValidation&quot;, &quot;&quot;, false, false))" id="ctl00_Main_btnAdd" title="SAVE" class="btn btn-lg btn-success" style="display:none;" />
+                <a id="ctl00_Main_btnCancel" onclick="location.href = &#39;ProjectDetailView.aspx&#39;" class="btn btn-lg btn-default" title="CLOSE" style="cursor: pointer;">Close</a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<input type="hidden" name="ctl00$Main$hdnMeterDocName" id="ctl00_Main_hdnMeterDocName" />
+<input type="hidden" name="ctl00$Main$hdnPanelDocName" id="ctl00_Main_hdnPanelDocName" />
+<input type="hidden" name="ctl00$Main$hdnPanelDocName2" id="ctl00_Main_hdnPanelDocName2" />
+<input type="hidden" name="ctl00$Main$hdnPanelDocName3" id="ctl00_Main_hdnPanelDocName3" />
+<input type="hidden" name="ctl00$Main$hdnRoofDocName" id="ctl00_Main_hdnRoofDocName" />
+<input type="hidden" name="ctl00$Main$hdnRoofDocName2" id="ctl00_Main_hdnRoofDocName2" />
+<input type="hidden" name="ctl00$Main$hdnRoofDocName3" id="ctl00_Main_hdnRoofDocName3" />
+<input type="hidden" name="ctl00$Main$hdnRoofDocName4" id="ctl00_Main_hdnRoofDocName4" />
+<input type="hidden" name="ctl00$Main$hdnRafterSizeDocName" id="ctl00_Main_hdnRafterSizeDocName" />
+<input type="hidden" name="ctl00$Main$hdnRafterSpacingDocName" id="ctl00_Main_hdnRafterSpacingDocName" />
+<input type="hidden" name="ctl00$Main$hdnInsulationDocName" id="ctl00_Main_hdnInsulationDocName" />
+
+<input type="hidden" name="ctl00$Main$hdnfldInsulationImageRequire" id="ctl00_Main_hdnfldInsulationImageRequire" />
+<input type="hidden" name="ctl00$Main$hdnDefailtNo" id="ctl00_Main_hdnDefailtNo" />
+
+
+
+<input type="hidden" name="ctl00$Main$hdnStatus" id="ctl00_Main_hdnStatus" value="true" />
+<input type="hidden" name="ctl00$Main$hdnSiteSurveyID" id="ctl00_Main_hdnSiteSurveyID" value="0" />
+<input type="hidden" name="ctl00$Main$hdnCustomerToProjectID" id="ctl00_Main_hdnCustomerToProjectID" value="20251" />
+
+
