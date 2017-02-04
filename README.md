@@ -9,13 +9,11 @@ Solar Payment Portal was created for a startup company here in Houston to add ad
 <img src="./Screenshots/SolarPP_Financing.png"/>
 
 ###Challenges Faced and Solutions Used:
-1.The major challenge I was faced with in creating this web application was working the lending partner’s API. The API used the SOAP protocol with an XML data structure. I was provided with 2 WSDL files and excel spreadsheets outlining the fields I would need to successfully request a response from the lenders API. 
+The major challenge I was faced with in creating this web application was working the lending partner’s API. The API used the SOAP protocol with an XML data structure. I was provided with 2 WSDL files and excel spreadsheets outlining the fields I would need to successfully request a response from the lenders API. Having no prior experience with SOAP XML my first task was to learn about the structure of soap envelopes and how to interpret the WSDL file. After some research, I discovered how the WSDL file explains binding the message, port, and services within a XML structure defining the end points for each message and the communication method to be used. 
 
 <img src=".Screenshots/SolarPP_WSDL.png"/>
 
-2.Having no prior experience with SOAP XML my first task was to learn about the structure of soap envelopes and how to interpret the WSDL file. After some research, I discovered how the WSDL file explains binding the message, port, and services within a XML structure defining the end points for each message and the communication method to be used. 
-
-3.From here I needed to decide how I would handle the XML data and send it up to the API, as well receive my response. My research first showed some examples of pushing the XML as a single string, manually creating the envelopes and interpolating the data to concatenate together a very large string. However, as I dug deeper I discovered that with ASP.NET WCF connected services could be used to generate a code base for both a data structure and functions for serializing my XML request. 
+From here I needed to decide how I would handle the XML data and send it up to the API, as well receive my response. My research first showed some examples of pushing the XML as a single string, manually creating the envelopes and interpolating the data to concatenate together a very large string. However, as I dug deeper I discovered that with ASP.NET WCF connected services could be used to generate a code base for both a data structure and functions for serializing my XML request. 
 
 <img src="./Screenshots/SolarPP_WCFmodel.png"/>
 
