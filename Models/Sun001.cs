@@ -7,5 +7,7 @@ namespace FinancingAPI.Models
 {
     public class Sun001
     {
+        
+
     }
 }
