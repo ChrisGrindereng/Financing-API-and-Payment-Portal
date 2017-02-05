@@ -28,15 +28,15 @@ It also required a little adaptation of the async methods from service reference
 ###Error Handling and Troubleshooting:
 When working with backend APIs, trouble shooting can always be a difficult task. As such there are some useful tools and techniques I was able to use to shine a light on some of the sensitive trouble areas. 
 
-1. PostMan- PostMan is a great application for working with APIs. It allows you to simply test the structure of the information you're sending up and how you implement any security keys needed to ping the API. Postman also displays the response data providing a way of seeing the resopnse data structure prior to building an API request.  It allowed me to test the example XML structure I was given and experiment with certain data fields since changing these could give me different types of response data. 
+- PostMan- PostMan is a great application for working with APIs. It allows you to simply test the structure of the information you're sending up and how you implement any security keys needed to ping the API. Postman also displays the response data providing a way of seeing the resopnse data structure prior to building an API request.  It allowed me to test the example XML structure I was given and experiment with certain data fields since changing these could give me different types of response data. 
 
 <img src="./Screenshots/SolarPP_PostManResponse.png"/>
 
-2. WCF connected Services- Working with WCF was very helpful as I could upload the WSDL file directly into Visual Studio and have it generate a code base of models, interfaces, and methods. It also handled the model binding, although I did have to take some extra steps based on the model structure I was confined to working within. 
+- WCF connected Services- Working with WCF was very helpful as I could upload the WSDL file directly into Visual Studio and have it generate a code base of models, interfaces, and methods. It also handled the model binding, although I did have to take some extra steps based on the model structure I was confined to working within. 
 
 <img src="./Screenshots/SolarPP_WCFcode.png"/>
 
-3. One of the most time-consuming steps of the project was actually figuring out how to use the WCF connected services and the code the it generated. To this end, I built a test application to play with the code I had generated and with the response I got back after pinging the API. To set this up, I used a basic windows form application so to display the data easily. Ultimately experimenting in this way allowed me to discover how to invoke the generated code properly. 
+- One of the most time-consuming steps of the project was actually figuring out how to use the WCF connected services and the code the it generated. To this end, I built a test application to play with the code I had generated and with the response I got back after pinging the API. To set this up, I used a basic windows form application so to display the data easily. Ultimately experimenting in this way allowed me to discover how to invoke the generated code properly. 
 
 <img src="./Screenshots/SolarPP_TestForm.png"/>
 
